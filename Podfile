@@ -7,5 +7,7 @@ target 'MagicYouPlayer' do
 
    pod 'GoogleAPIClientForREST/YouTube', '~> 1.2.1'
    pod 'Google/SignIn'
+   pod 'Kingfisher', '~> 5.0'
+   pod 'Alamofire', '~> 5.2'
 
 end
