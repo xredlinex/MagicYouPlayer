@@ -1,0 +1,6 @@
+framework module Pods_MagicYouPlayer {
+  umbrella header "Pods-MagicYouPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}
