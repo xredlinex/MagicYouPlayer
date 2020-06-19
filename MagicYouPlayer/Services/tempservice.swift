@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class NetworkService {
+class NetworkService1 {
     
     
     static let link = "https://www.googleapis.com/youtube/v3/"

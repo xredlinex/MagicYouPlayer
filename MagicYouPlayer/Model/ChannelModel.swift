@@ -14,8 +14,6 @@ class YouTubeChannel: Codable {
     var kind: String?
     var etag: String?
     
-    
-    
     enum CodingKeys: String, CodingKey {
         case items, kind, etag
     }
@@ -25,9 +23,9 @@ class YoutubePlayList: Codable {
     
     var items: [Item]?
     
-     enum CodingKeys: String, CodingKey {
-           case items
-       }
+    enum CodingKeys: String, CodingKey {
+        case items
+    }
 }
 
 class RelatedPlaylists: Codable {
@@ -38,8 +36,3 @@ class RelatedPlaylists: Codable {
         case uploads
     }
 }
-
-
-
-
-

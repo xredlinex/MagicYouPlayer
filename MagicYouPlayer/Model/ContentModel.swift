@@ -82,7 +82,6 @@ class ContentDetails: Codable {
     enum CodingKeys: String, CodingKey {
         case videoId, videoPublishedAt, relatedPlaylists
     }
-    
 }
 
 class Statistics: Codable {
@@ -93,8 +92,4 @@ class Statistics: Codable {
     enum CodingKeys: String, CodingKey {
         case viewCount, likeCount
     }
-    
- 
 }
-
-
