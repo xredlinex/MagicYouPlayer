@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		972CE0C3249CCBD700E7377F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0C2249CCBD700E7377F /* AppDelegate.swift */; };
 		972CE0C5249CCBD700E7377F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0C4249CCBD700E7377F /* SceneDelegate.swift */; };
-		972CE0C7249CCBD700E7377F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0C6249CCBD700E7377F /* ViewController.swift */; };
 		972CE0CA249CCBD700E7377F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972CE0C8249CCBD700E7377F /* Main.storyboard */; };
 		972CE0CC249CCBD900E7377F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972CE0CB249CCBD900E7377F /* Assets.xcassets */; };
 		972CE0CF249CCBD900E7377F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */; };
+		972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D6249CD34500E7377F /* PlayListViewController.swift */; };
+		972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */; };
+		972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */; };
+		972CE0DD249CD41D00E7377F /* ApiClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DC249CD41D00E7377F /* ApiClientService.swift */; };
+		972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DE249CD44200E7377F /* ContentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		972CE0BF249CCBD700E7377F /* MagicYouPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicYouPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		972CE0C2249CCBD700E7377F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		972CE0C4249CCBD700E7377F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		972CE0C6249CCBD700E7377F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		972CE0C9249CCBD700E7377F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		972CE0CB249CCBD900E7377F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		972CE0CE249CCBD900E7377F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		972CE0D0249CCBD900E7377F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		972CE0D6249CD34500E7377F /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
+		972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Extension.swift"; sourceTree = "<group>"; };
+		972CE0DC249CD41D00E7377F /* ApiClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientService.swift; sourceTree = "<group>"; };
+		972CE0DE249CD44200E7377F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,41 @@
 			children = (
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
-				972CE0C6249CCBD700E7377F /* ViewController.swift */,
+				972CE0E0249CD44600E7377F /* Model */,
+				972CE0E2249CD47900E7377F /* Services */,
+				972CE0E1249CD45100E7377F /* PlaylistController */,
 				972CE0C8249CCBD700E7377F /* Main.storyboard */,
 				972CE0CB249CCBD900E7377F /* Assets.xcassets */,
 				972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */,
 				972CE0D0249CCBD900E7377F /* Info.plist */,
 			);
 			path = MagicYouPlayer;
+			sourceTree = "<group>";
+		};
+		972CE0E0249CD44600E7377F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				972CE0DE249CD44200E7377F /* ContentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		972CE0E1249CD45100E7377F /* PlaylistController */ = {
+			isa = PBXGroup;
+			children = (
+				972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */,
+				972CE0D6249CD34500E7377F /* PlayListViewController.swift */,
+				972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */,
+			);
+			path = PlaylistController;
+			sourceTree = "<group>";
+		};
+		972CE0E2249CD47900E7377F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				972CE0DC249CD41D00E7377F /* ApiClientService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				972CE0C7249CCBD700E7377F /* ViewController.swift in Sources */,
 				972CE0C3249CCBD700E7377F /* AppDelegate.swift in Sources */,
+				972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */,
 				972CE0C5249CCBD700E7377F /* SceneDelegate.swift in Sources */,
+				972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */,
+				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
+				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
+				972CE0DD249CD41D00E7377F /* ApiClientService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NWX6LJCJ67;
 				INFOPLIST_FILE = MagicYouPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +335,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeysorochan.MagicYouPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NWX6LJCJ67;
 				INFOPLIST_FILE = MagicYouPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeysorochan.MagicYouPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
