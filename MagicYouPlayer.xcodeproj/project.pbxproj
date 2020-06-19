@@ -16,7 +16,6 @@
 		972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D6249CD34500E7377F /* PlayListViewController.swift */; };
 		972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */; };
 		972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */; };
-		972CE0DD249CD41D00E7377F /* tempservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DC249CD41D00E7377F /* tempservice.swift */; };
 		972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DE249CD44200E7377F /* ContentModel.swift */; };
 		9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9735EFE6249D7ED600E15F50 /* Networking.swift */; };
 		973F90DF249D5C9D00465A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F90DE249D5C9D00465A20 /* ViewController.swift */; };
@@ -38,7 +37,6 @@
 		972CE0D6249CD34500E7377F /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Extension.swift"; sourceTree = "<group>"; };
-		972CE0DC249CD41D00E7377F /* tempservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempservice.swift; sourceTree = "<group>"; };
 		972CE0DE249CD44200E7377F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		9735EFE6249D7ED600E15F50 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		973F90DE249D5C9D00465A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MagicYouPlayer/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -124,7 +122,6 @@
 		972CE0E2249CD47900E7377F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				972CE0DC249CD41D00E7377F /* tempservice.swift */,
 				973F90DE249D5C9D00465A20 /* ViewController.swift */,
 				9735EFE6249D7ED600E15F50 /* Networking.swift */,
 			);
@@ -263,7 +260,6 @@
 				972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */,
 				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
 				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
-				972CE0DD249CD41D00E7377F /* tempservice.swift in Sources */,
 				97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

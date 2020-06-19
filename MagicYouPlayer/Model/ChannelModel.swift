@@ -6,7 +6,7 @@
 //  Copyright © 2020 alexey sorochan. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class YouTubeChannel: Codable {
     
