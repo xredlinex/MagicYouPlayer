@@ -6,21 +6,37 @@
 //  Copyright © 2020 alexey sorochan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class YouTubeChannel {
+class YouTubeChannel: Codable {
     
     var items: [Item]?
+    var kind: String?
+    var etag: String?
+    
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case items, kind, etag
+    }
 }
 
-class YoutubePlayList {
+class YoutubePlayList: Codable {
     
     var items: [Item]?
+    
+     enum CodingKeys: String, CodingKey {
+           case items
+       }
 }
 
-class RelatedPlaylists {
+class RelatedPlaylists: Codable {
     
     var uploads: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case uploads
+    }
 }
 
 

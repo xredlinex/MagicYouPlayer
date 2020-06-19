@@ -5,8 +5,6 @@ target 'MagicYouPlayer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-   pod 'GoogleAPIClientForREST/YouTube', '~> 1.2.1'
-   pod 'Google/SignIn'
    pod 'Kingfisher', '~> 5.0'
    pod 'Alamofire', '~> 5.2'
 
