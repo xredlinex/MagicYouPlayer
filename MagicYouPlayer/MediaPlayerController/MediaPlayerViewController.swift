@@ -9,11 +9,27 @@
 import UIKit
 
 class MediaPlayerViewController: UIViewController {
-
+    
+    
+    
+    @IBOutlet weak var dimmerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    // MARK: - View Life Cycle
+     override func awakeFromNib() {
+       super.awakeFromNib()
+
+//       modalPresentationCapturesStatusBarAppearance = true //allow this VC to control the status bar appearance
+       modalPresentationStyle = .overFullScreen //dont dismiss the presenting view controller when presented
+     }
+    
+    
+    @IBAction func didTapDismissActionButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

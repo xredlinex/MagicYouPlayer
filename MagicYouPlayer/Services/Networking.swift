@@ -24,18 +24,18 @@ class NetworkService {
                         if let items = youtubeObjects.items {
                             complition(items)
                         } else {
-                            //                            error or thmsgs
+//                                                        error or thmsgs
                         }
                     } catch {
                         debugPrint(error)
                     }
                     
                 } else {
-                    //                    response errror
+//                                        response errror
                 }
             }
         } else {
-            //            make alert error get link or thms
+//                        make alert error get link or thms
         }
         
     }

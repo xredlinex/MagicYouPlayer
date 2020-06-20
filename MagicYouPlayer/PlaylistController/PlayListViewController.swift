@@ -9,22 +9,58 @@
 import UIKit
 
 class PlayListViewController: UIViewController {
-
+    
+    @IBOutlet weak var channelsCollectionView: UICollectionView!
+    
+    
+    var channels: [Item] = []
+    var playlist: [Item]?
+    let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
+    let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
+    let thirdChannelId = ""
+    let fourthChannelId = ""
+    let channelPart = "part=contentDetails%2Csnippet%2Cstatistics"
+    let playlistPart = "part=snippet%2CcontentDetails&maxResults=10&playlistId="
+    let videoPart = "part=contentDetails%2Csnippet%2Cstatistics"
+    let channelsLink = "channels?"
+    let playlistLink = "playlistItems?"
+    let videoLink = "videos?"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func didTapPlayerActionButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true, completion: nil)
     }
-    */
+}
 
+extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == channelsCollectionView {
+            return channels.count
+        } else {
+            return channels.count
+        }
+    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == channelsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
+                return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    
 }
