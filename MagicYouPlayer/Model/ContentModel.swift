@@ -88,8 +88,9 @@ class Statistics: Codable {
     
     var viewCount: String?
     var likeCount: String?
+    var subscriberCount: String?
     
     enum CodingKeys: String, CodingKey {
-        case viewCount, likeCount
+        case viewCount, likeCount, subscriberCount
     }
 }
