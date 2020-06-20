@@ -11,10 +11,13 @@ import UIKit
 class PlayListViewController: UIViewController {
     
     @IBOutlet weak var channelsCollectionView: UICollectionView!
+    @IBOutlet weak var playlistCollectionView: UICollectionView!
+    @IBOutlet weak var favoritePlaylistCollectionview: UICollectionView!
     
     let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
+    var favoritePlaylist: [Item] = []
     
     let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
     let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
@@ -32,6 +35,8 @@ class PlayListViewController: UIViewController {
         
         getChannels(channelsId: channelOneId + secondChannelId + thirdChannelId + fourthChannelId)
         channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
+        playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
+        favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
         channelsCollectionView.collectionViewLayout = flowLayout
         channelsCollectionView.contentInsetAdjustmentBehavior = .always
@@ -46,34 +51,6 @@ class PlayListViewController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
 }
-
-extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == channelsCollectionView {
-            return channels.count
-        } else {
-//            add logic for playlist collection view
-            return channels.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == channelsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
-            for items in channelsPlaylists {
-                if let random = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
-                    cell.updateChanneCell(channel: channels[indexPath.row], channelVideo: random)
-                }
-            }
-            return cell
-        } else {
-//            add logic for playlist collection view
-        }
-        return UICollectionViewCell()
-    }
-}
-
 
 extension PlayListViewController {
     
