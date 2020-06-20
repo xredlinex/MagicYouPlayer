@@ -18,8 +18,8 @@ class PlayListViewController: UIViewController {
     
     let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
     let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
-    let thirdChannelId = ""
-    let fourthChannelId = ""
+    let thirdChannelId = "&id=UCxbViCBWaW2RLZLGcOdsxAw"
+    let fourthChannelId = "&id=UCzWdpFOflXTOk5Gsi2aJ67g"
     let channelPart = "part=contentDetails%2Csnippet%2Cstatistics"
     let playlistPart = "part=snippet%2CcontentDetails&maxResults=10&playlistId="
     let videoPart = "part=contentDetails%2Csnippet%2Cstatistics"
@@ -36,15 +36,7 @@ class PlayListViewController: UIViewController {
         channelsCollectionView.collectionViewLayout = flowLayout
         channelsCollectionView.contentInsetAdjustmentBehavior = .always
 //        channelCollectionTimer()
-        
-        
-       
-    
     }
-    
-   
-    
-    
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -61,51 +53,25 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView == channelsCollectionView {
             return channels.count
         } else {
+//            add logic for playlist collection view
             return channels.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == channelsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
-          
-//            if let random = channelsPlaylists[indexPath.section].first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
-//                debugPrint("zzzzzzzzzzz")
-//                debugPrint(random.snippet?.channelId)
-//                debugPrint("zzzzzzzzzzz")
-//            }
-            
-                
-//            if let element = channelsPlaylists[indexPath.section].first (where: { $0.snippet?.channelId ==    })
-            
-//            debugPrint(channelsPlaylists[indexPath.section].first?.snippet?.channelId)
-//            debugPrint(channels[indexPath.row].id)
-//            
-//            for i in channelsPlaylists {
-//                
-//                
-//                
-//            }
-            
             for items in channelsPlaylists {
                 if let random = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
                     cell.updateChanneCell(channel: channels[indexPath.row], channelVideo: random)
                 }
             }
-            
-            
-            
-     
-            
-//               cell.updateChanneCell(channel: channels[indexPath.row], channelVideo: random)
-            
             return cell
+        } else {
+//            add logic for playlist collection view
         }
         return UICollectionViewCell()
     }
-    
-    
 }
 
 

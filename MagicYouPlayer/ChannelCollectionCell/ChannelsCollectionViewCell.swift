@@ -11,10 +11,8 @@ import Kingfisher
 
 class ChannelsCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var channalVideoThumbnailImageView: UIImageView!
     @IBOutlet weak var channelTitleTextLabel: UILabel!
-    
     @IBOutlet weak var channelSubscribersCountTextLabel: UILabel!
     @IBOutlet weak var playButtonView: UIView!
     
@@ -26,11 +24,10 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-//        channalVideoThumbnailImageView.image = nil
+        channalVideoThumbnailImageView.image = nil
     }
     
     func updateChanneCell(channel: Item, channelVideo: Item) {
-        
         
         channelTitleTextLabel.text = channel.snippet?.title
         channelSubscribersCountTextLabel.text = channel.statistics?.subscriberCount ?? "--"
@@ -39,22 +36,13 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
             let url = URL(string: urlString)
             channalVideoThumbnailImageView.kf.setImage(with: url)
         }
-        
-        
-        
-        
-        
     }
-    
-    
-
 }
 
 extension ChannelsCollectionViewCell {
     
     
     func setupUI() {
-        
         
         playButtonView.clipsToBounds = true
         playButtonView.layer.cornerRadius = playButtonView.frame.width / 2
