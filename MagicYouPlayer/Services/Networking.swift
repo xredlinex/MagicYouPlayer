@@ -23,15 +23,6 @@ class NetworkService {
                     do {
                         let youtubeObjects = try JSONDecoder().decode(YoutubeVideo.self, from: data)
                         if let items = youtubeObjects.items {
-                            
-                            
-                            debugPrint("->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                            for item in items {
-                                debugPrint(item.snippet?.title)
-                            }
-                            debugPrint("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-                            
-                            
                             complition(items)
                         } else {
 //                                                        error or thmsgs

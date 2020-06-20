@@ -26,15 +26,21 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        channalVideoThumbnailImageView.image = nil
+//        channalVideoThumbnailImageView.image = nil
     }
     
-    func updateChanneCell(channel: Item) {
+    func updateChanneCell(channel: Item, channelVideo: Item) {
         
         
         channelTitleTextLabel.text = channel.snippet?.title
         channelSubscribersCountTextLabel.text = channel.statistics?.subscriberCount ?? "--"
-        debugPrint(channel.statistics?.subscriberCount ?? "--")
+        
+        if let urlString = channelVideo.snippet?.thumbnails?.high?.url {
+            let url = URL(string: urlString)
+            channalVideoThumbnailImageView.kf.setImage(with: url)
+        }
+        
+        
         
         
         

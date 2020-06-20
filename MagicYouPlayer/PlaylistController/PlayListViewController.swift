@@ -12,11 +12,10 @@ class PlayListViewController: UIViewController {
     
     @IBOutlet weak var channelsCollectionView: UICollectionView!
     
-      let flowLayout = ZoomAndSnapFlowLayout()
-    
-    
+    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
-    var playlist: [Item]?
+    var channelsPlaylists: [[Item]] = []
+    
     let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
     let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
     let thirdChannelId = ""
@@ -30,13 +29,21 @@ class PlayListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getChannels(channelsId: channelOneId + secondChannelId)
+        
+        getChannels(channelsId: channelOneId + secondChannelId + thirdChannelId + fourthChannelId)
         channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
         
         channelsCollectionView.collectionViewLayout = flowLayout
-               channelsCollectionView.contentInsetAdjustmentBehavior = .always
+        channelsCollectionView.contentInsetAdjustmentBehavior = .always
+//        channelCollectionTimer()
+        
+        
+       
+    
     }
+    
+   
+    
     
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
@@ -56,17 +63,73 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             return channels.count
         }
-    
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == channelsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
-            cell.updateChanneCell(channel: channels[indexPath.row])
-                return cell
+          
+//            if let random = channelsPlaylists[indexPath.section].first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
+//                debugPrint("zzzzzzzzzzz")
+//                debugPrint(random.snippet?.channelId)
+//                debugPrint("zzzzzzzzzzz")
+//            }
+            
+                
+//            if let element = channelsPlaylists[indexPath.section].first (where: { $0.snippet?.channelId ==    })
+            
+//            debugPrint(channelsPlaylists[indexPath.section].first?.snippet?.channelId)
+//            debugPrint(channels[indexPath.row].id)
+//            
+//            for i in channelsPlaylists {
+//                
+//                
+//                
+//            }
+            
+            for items in channelsPlaylists {
+                if let random = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
+                    cell.updateChanneCell(channel: channels[indexPath.row], channelVideo: random)
+                }
+            }
+            
+            
+            
+     
+            
+//               cell.updateChanneCell(channel: channels[indexPath.row], channelVideo: random)
+            
+            return cell
         }
         return UICollectionViewCell()
     }
     
+    
+}
+
+
+extension PlayListViewController {
+    
+    func channelCollectionTimer() {
+           
+           _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollingChannelCollection(timer:)), userInfo: nil, repeats: true)
+       }
+       
+       @objc func scrollingChannelCollection(timer: Timer) {
+           if let collectionView = channelsCollectionView {
+               for cell in collectionView.visibleCells {
+                   if let indexPath = collectionView.indexPath(for: cell) {
+                       if indexPath.row < channels.count - 1 {
+                           let nextIndexPath = IndexPath.init(row: indexPath.row + 1, section: indexPath.section)
+                           collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                       } else {
+                           let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
+                           collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                       }
+                   }
+               }
+           }
+       }
     
 }

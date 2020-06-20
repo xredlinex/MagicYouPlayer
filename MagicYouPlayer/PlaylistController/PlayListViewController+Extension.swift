@@ -17,14 +17,17 @@ extension PlayListViewController {
             self.channels = items
             DispatchQueue.main.async {
 //                if let channels = self.channels {
-                self.channelsCollectionView.reloadData()
+                
                 
                 
                 
                     for channel in self.channels {
                         
+                        debugPrint(channel.snippet?.title)
                         if let playlistId = channel.contentDetails?.relatedPlaylists?.uploads {
                             self.getPlaylist(playlistId: playlistId)
+                            
+                        
                         }
                     }
 //                }
@@ -33,11 +36,16 @@ extension PlayListViewController {
     }
     
     func getPlaylist(playlistId: String) {
-     
+        
+        var zzzz: [Item] = []
+        
         NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId) { (items) in
-            self.playlist = items
+          
+            zzzz = items
+            self.channelsPlaylists.append(zzzz)
+            
             DispatchQueue.main.async {
-//                playlist videos
+                self.channelsCollectionView.reloadData()
             }
         }
     }
