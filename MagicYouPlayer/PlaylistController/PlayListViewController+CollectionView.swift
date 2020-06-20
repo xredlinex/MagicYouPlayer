@@ -11,28 +11,35 @@ import UIKit
 extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == playlistCollectionView {
-            return channelsPlaylists.count
-        } else if collectionView == channelsCollectionView {
+        
+        switch (collectionView) {
+        case channelsCollectionView:
             return 1
-        } else {
+        case playlistCollectionView:
+            return channelsPlaylists.count
+        case favoritePlaylistCollectionview:
+            return 1
+        default:
             return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == channelsCollectionView {
+        
+        switch collectionView {
+        case channelsCollectionView:
             return channels.count
-        } else if collectionView == playlistCollectionView {
+        case playlistCollectionView:
             return channelsPlaylists[section].count
-        } else {
-//            debugPrint(channelsPlaylists[section].count)
-            
+        case favoritePlaylistCollectionview:
             return favoritePlaylist.count
+        default:
+            return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == channelsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
             for items in channelsPlaylists {
@@ -41,15 +48,13 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
                 }
             }
             return cell
-        } else if collectionView == favoritePlaylistCollectionview {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritePlaylistCollectionViewCell", for: indexPath) as! FavoritePlaylistCollectionViewCell
-//            cell.updatePlaylistCell(playlistItems: channelsPlaylists[sec][indexPath.row])
-            cell.updatePlaylistCell(playlistItems: favoritePlaylist[indexPath.row])
-            return cell
-        }
-        else {
+        } else if collectionView == playlistCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaylistCollectionViewCell", for: indexPath) as! PlaylistCollectionViewCell
             cell.updatePlaylistCell(playlistItems: channelsPlaylists[indexPath.section][indexPath.row])
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritePlaylistCollectionViewCell", for: indexPath) as! FavoritePlaylistCollectionViewCell
+            cell.updatePlaylistCell(playlistItems: favoritePlaylist[indexPath.row])
             return cell
         }
     }

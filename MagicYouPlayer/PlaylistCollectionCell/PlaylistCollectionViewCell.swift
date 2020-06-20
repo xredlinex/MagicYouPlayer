@@ -30,12 +30,8 @@ extension PlaylistCollectionViewCell {
             if let url = URL(string: urlLink) {
                 playlistPreviewImageView.kf.setImage(with: url)
             }
-            
         }
-        
         videoTitleTextLabel.text = playlistItems.snippet?.title ?? "--"
         previewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
-        
-        
     }
 }

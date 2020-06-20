@@ -20,9 +20,7 @@ class FavoritePlaylistCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }
-
 
 extension FavoritePlaylistCollectionViewCell {
     
@@ -32,12 +30,9 @@ extension FavoritePlaylistCollectionViewCell {
             if let url = URL(string: urlLink) {
                 favoritePreviewImageView.kf.setImage(with: url)
             }
-            
         }
         
         favoriteTitileTextLabel.text = playlistItems.snippet?.title ?? "--"
         favoriteViewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
-        
-        
     }
 }
