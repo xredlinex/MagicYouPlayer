@@ -29,8 +29,11 @@ extension PlayListViewController {
         
         NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId) { (items) in
             self.channelsPlaylists.append(items)
+            self.favoritePlaylist = items
             DispatchQueue.main.async {
                 self.channelsCollectionView.reloadData()
+                self.playlistCollectionView.reloadData()
+                self.favoritePlaylistCollectionview.reloadData()
             }
         }
     }
