@@ -17,11 +17,21 @@ class NetworkService {
         let baseApiLink = "https://www.googleapis.com/youtube/v3/"
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
+            debugPrint(urlCorrect)
             AF.request(urlCorrect, method: .get, encoding: URLEncoding.default).responseData { (response) in
                 if let data = response.data {
                     do {
                         let youtubeObjects = try JSONDecoder().decode(YoutubeVideo.self, from: data)
                         if let items = youtubeObjects.items {
+                            
+                            
+                            debugPrint("->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                            for item in items {
+                                debugPrint(item.snippet?.title)
+                            }
+                            debugPrint("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+                            
+                            
                             complition(items)
                         } else {
 //                                                        error or thmsgs

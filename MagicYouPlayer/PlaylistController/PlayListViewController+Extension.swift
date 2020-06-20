@@ -17,7 +17,12 @@ extension PlayListViewController {
             self.channels = items
             DispatchQueue.main.async {
 //                if let channels = self.channels {
+                self.channelsCollectionView.reloadData()
+                
+                
+                
                     for channel in self.channels {
+                        
                         if let playlistId = channel.contentDetails?.relatedPlaylists?.uploads {
                             self.getPlaylist(playlistId: playlistId)
                         }

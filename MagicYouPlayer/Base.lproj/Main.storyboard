@@ -72,13 +72,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIw-Dc-gHr">
                                                 <rect key="frame" x="0.0" y="72" width="414" height="234"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-7h-xlm">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-7h-xlm">
                                                         <rect key="frame" x="18" y="10" width="378" height="180"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="180" id="WXl-0w-8Rd"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xCK-us-qvF">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xCK-us-qvF">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -86,7 +86,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4ca-IA-JQl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                <rect key="frame" x="0.0" y="26" width="128" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rZF-lC-Kpy">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -94,6 +94,10 @@
                                                                 </collectionViewCellContentView>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="TqT-6c-GLO" id="knS-xv-Eag"/>
+                                                            <outlet property="delegate" destination="TqT-6c-GLO" id="XAd-3M-dfj"/>
+                                                        </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kri-ho-A8Y">
                                                         <rect key="frame" x="0.0" y="190" width="414" height="44"/>
@@ -135,7 +139,6 @@
                                     <constraint firstItem="fhU-eO-6f6" firstAttribute="centerX" secondItem="dci-45-L8F" secondAttribute="centerX" id="iV5-B8-Oio"/>
                                     <constraint firstAttribute="trailing" secondItem="fhU-eO-6f6" secondAttribute="trailing" id="kHc-5U-XQx"/>
                                     <constraint firstItem="fhU-eO-6f6" firstAttribute="leading" secondItem="dci-45-L8F" secondAttribute="leading" id="m64-AI-NlC"/>
-                                    <constraint firstItem="fhU-eO-6f6" firstAttribute="height" secondItem="dci-45-L8F" secondAttribute="height" id="yWr-an-x6z"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WrT-qy-t9w">

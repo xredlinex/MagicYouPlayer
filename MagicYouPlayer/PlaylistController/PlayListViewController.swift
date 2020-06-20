@@ -12,6 +12,8 @@ class PlayListViewController: UIViewController {
     
     @IBOutlet weak var channelsCollectionView: UICollectionView!
     
+      let flowLayout = ZoomAndSnapFlowLayout()
+    
     
     var channels: [Item] = []
     var playlist: [Item]?
@@ -29,8 +31,11 @@ class PlayListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        getChannels(channelsId: channelOneId + secondChannelId)
         channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
+        
+        channelsCollectionView.collectionViewLayout = flowLayout
+               channelsCollectionView.contentInsetAdjustmentBehavior = .always
     }
     
     
@@ -43,7 +48,7 @@ class PlayListViewController: UIViewController {
     }
 }
 
-extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == channelsCollectionView {
@@ -57,6 +62,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == channelsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsCollectionViewCell", for: indexPath) as! ChannelsCollectionViewCell
+            cell.updateChanneCell(channel: channels[indexPath.row])
                 return cell
         }
         return UICollectionViewCell()

@@ -20,15 +20,27 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+        setupUI()
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         
         channalVideoThumbnailImageView.image = nil
     }
+    
+    func updateChanneCell(channel: Item) {
+        
+        
+        channelTitleTextLabel.text = channel.snippet?.title
+        channelSubscribersCountTextLabel.text = channel.statistics?.subscriberCount ?? "--"
+        debugPrint(channel.statistics?.subscriberCount ?? "--")
+        
+        
+        
+    }
+    
+    
 
 }
 
