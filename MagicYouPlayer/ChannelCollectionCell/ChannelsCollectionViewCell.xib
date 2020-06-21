@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="339" height="180"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-l5-QAd">
-                                <rect key="frame" x="10" y="119" width="103.5" height="21"/>
+                                <rect key="frame" x="10" y="119" width="149.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0E4-PT-vnB"/>
                                 </constraints>
@@ -31,8 +31,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="channel subscribe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-40-Vdg">
-                                <rect key="frame" x="10" y="150" width="103.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="channel subscribers count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-40-Vdg">
+                                <rect key="frame" x="10" y="150" width="149.5" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yTq-4W-Doo" firstAttribute="leading" secondItem="ojh-yh-Sy1" secondAttribute="leading" id="9VA-c2-VX2"/>
                             <constraint firstItem="cvP-40-Vdg" firstAttribute="leading" secondItem="OCb-l5-QAd" secondAttribute="leading" id="DK2-uP-6tG"/>

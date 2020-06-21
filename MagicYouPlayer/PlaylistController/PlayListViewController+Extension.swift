@@ -39,9 +39,10 @@ extension PlayListViewController {
         let idString = videoIdGroup.map { ($0.contentDetails?.videoId ?? "") }.joined(separator: ",")
         NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: idString) { (items) in
             self.channelsPlaylists.append(items)
-            if self.favoritePlaylist.isEmpty {
-                self.favoritePlaylist = items                
-            }
+            self.favoritePlaylist = items
+//            if self.favoritePlaylist.isEmpty {
+//                self.favoritePlaylist = items                
+//            }
             DispatchQueue.main.async {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
