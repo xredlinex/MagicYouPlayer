@@ -17,7 +17,6 @@ class NetworkService {
         let baseApiLink = "https://www.googleapis.com/youtube/v3/"
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
-            debugPrint(urlCorrect)
             AF.request(urlCorrect, method: .get, encoding: URLEncoding.default).responseData { (response) in
                 if let data = response.data {
                     do {

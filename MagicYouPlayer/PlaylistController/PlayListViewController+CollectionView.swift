@@ -71,55 +71,6 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
                 favoristPlaylistTextLabel.text = channelTitle
             }
         }
-        
-//        
-//        if collectionView == playlistCollectionView {
-//            
-//            if let videoId = channelsPlaylists[indexPath.section][indexPath.row].contentDetails?.videoId {
-//                debugPrint(videoId)
-//                NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: videoId) { (item) in
-//                    
-//                    if let viewCount = item[0].statistics?.viewCount {
-//                    
-//                        self.channelsPlaylists[indexPath.section][indexPath.row].statistics?.viewCount = viewCount
-//                    }
-//                    
-//                    DispatchQueue.main.async {
-////                        debugPrint(self.channelsPlaylists[indexPath.section][indexPath.row].statistics?.viewCount)
-//                        
-//                    }
-//                    )
-//                    debugPrint(":")
-//
-//                    for i in item {
-//
-//                        debugPrint(i.statistics?.viewCount)
-//                    }
-                    
-                    
-                    
-//                    DispatchQueue.main.async {
-//                        debugPrint("->>>>>>>")
-//                        debugPrint(item[indexPath.row].statistics?.viewCount)
-//                    }
-//                }
-//
-//            }
-            
-            
-            
-//        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
