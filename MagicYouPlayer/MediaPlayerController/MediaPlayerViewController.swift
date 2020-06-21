@@ -11,13 +11,15 @@ import UIKit
 class MediaPlayerViewController: UIViewController {
     
     
+    @IBOutlet weak var playerCloseImageView: UIImageView!
     
     @IBOutlet weak var dimmerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+        debugPrint("player open")
     }
     // MARK: - View Life Cycle
      override func awakeFromNib() {
@@ -43,4 +45,13 @@ class MediaPlayerViewController: UIViewController {
     }
     */
 
+}
+
+extension MediaPlayerViewController {
+    
+    func setupUI() {
+        
+        
+        playerCloseImageView.image = UIImage(named: "Close_Open")
+    }
 }

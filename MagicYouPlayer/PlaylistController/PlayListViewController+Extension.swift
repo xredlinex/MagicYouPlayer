@@ -61,5 +61,7 @@ extension PlayListViewController {
         let playlistLayout = playlistCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         playlistLayout.minimumLineSpacing = 15
         
+        playerOpenCloseImageView.image = UIImage(named: "Close_Open")
+        playerOpenCloseImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
     }
 }
