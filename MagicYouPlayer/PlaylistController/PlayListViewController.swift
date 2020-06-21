@@ -17,8 +17,8 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var playlistCollectionTextLabel: UILabel!
     @IBOutlet weak var favoristPlaylistTextLabel: UILabel!
     @IBOutlet weak var channelPageControl: UIPageControl!
-    
-    let flowLayout = ZoomAndSnapFlowLayout()
+    @IBOutlet weak var playerOpenCloseImageView: UIImageView!
+    //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
     var favoritePlaylist: [Item] = []
@@ -44,14 +44,11 @@ class PlayListViewController: UIViewController {
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
-
-        let layout = favoritePlaylistCollectionview.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing = 15
-        let playlistLayout = playlistCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        playlistLayout.minimumLineSpacing = 15
+        setupUI()
+      
         
 
-        channelsCollectionView.collectionViewLayout = flowLayout
+//        channelsCollectionView.collectionViewLayout = flowLayout
         
         
         channelCollectionTimer()

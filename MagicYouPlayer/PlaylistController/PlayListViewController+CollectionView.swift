@@ -60,7 +60,6 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if collectionView == playlistCollectionView {
@@ -73,7 +72,6 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -90,7 +88,4 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         channelPageControl.currentPage = Int((channelsCollectionView.contentOffset.x / channelsCollectionView.frame.width).rounded(.toNearestOrAwayFromZero)
         )
     }
- 
-    
-    
 }

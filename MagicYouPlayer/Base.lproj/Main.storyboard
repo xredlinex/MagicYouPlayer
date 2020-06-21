@@ -102,13 +102,16 @@
                                                         <rect key="frame" x="0.0" y="190" width="414" height="44"/>
                                                         <subviews>
                                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="wsA-I7-DMf">
-                                                                <rect key="frame" x="187.5" y="3.5" width="39" height="37"/>
+                                                                <rect key="frame" x="187.5" y="5" width="39" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="Y0f-5F-Vi9"/>
+                                                                </constraints>
                                                             </pageControl>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="00m-0V-NaA"/>
-                                                            <constraint firstItem="wsA-I7-DMf" firstAttribute="centerY" secondItem="Kri-ho-A8Y" secondAttribute="centerY" id="7or-b6-Zz9"/>
+                                                            <constraint firstItem="wsA-I7-DMf" firstAttribute="top" secondItem="Kri-ho-A8Y" secondAttribute="top" constant="5" id="LIw-z9-RQ2"/>
                                                             <constraint firstItem="wsA-I7-DMf" firstAttribute="centerX" secondItem="Kri-ho-A8Y" secondAttribute="centerX" id="XYR-cZ-mso"/>
                                                         </constraints>
                                                     </view>
@@ -260,10 +263,19 @@
                                             <action selector="didTapPlayerActionButton:" destination="TqT-6c-GLO" eventType="touchUpInside" id="kh6-wW-o5O"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Close_Open" translatesAutoresizingMaskIntoConstraints="NO" id="vWx-ib-yui">
+                                        <rect key="frame" x="182" y="10" width="40" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9Dz-Gc-tvr"/>
+                                            <constraint firstAttribute="width" constant="40" id="Qcu-Yd-m6B"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Um4-Hi-9vc" secondAttribute="bottom" id="06x-iF-LIq"/>
+                                    <constraint firstItem="vWx-ib-yui" firstAttribute="centerY" secondItem="WrT-qy-t9w" secondAttribute="centerY" id="6hH-DN-Fb3"/>
+                                    <constraint firstItem="vWx-ib-yui" firstAttribute="centerX" secondItem="WrT-qy-t9w" secondAttribute="centerX" id="Mjf-4J-qlM"/>
                                     <constraint firstAttribute="trailing" secondItem="Um4-Hi-9vc" secondAttribute="trailing" id="dez-AP-tgR"/>
                                     <constraint firstAttribute="height" constant="40" id="eY9-cf-BmL"/>
                                     <constraint firstItem="Um4-Hi-9vc" firstAttribute="top" secondItem="WrT-qy-t9w" secondAttribute="top" id="sJf-WC-TvM"/>
@@ -284,10 +296,11 @@
                         <viewLayoutGuide key="safeArea" id="eTt-0C-QWj"/>
                     </view>
                     <connections>
-                        <outlet property="channelPageControl" destination="wsA-I7-DMf" id="ry5-lC-tI8"/>
+                        <outlet property="channelPageControl" destination="wsA-I7-DMf" id="CHg-fg-Rz3"/>
                         <outlet property="channelsCollectionView" destination="ezN-7h-xlm" id="8QX-oc-pd6"/>
                         <outlet property="favoristPlaylistTextLabel" destination="XT1-T5-Vxs" id="JL9-zR-g8Q"/>
                         <outlet property="favoritePlaylistCollectionview" destination="7h0-af-jBc" id="dEr-0U-8TB"/>
+                        <outlet property="playerOpenCloseImageView" destination="vWx-ib-yui" id="csN-ye-f7r"/>
                         <outlet property="playlistCollectionTextLabel" destination="CrM-HA-zzO" id="c5J-qb-wJ9"/>
                         <outlet property="playlistCollectionView" destination="nmw-VN-u6F" id="Mih-tA-zmg"/>
                     </connections>
@@ -464,6 +477,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Close_Open" width="31" height="17"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
     </resources>
 </document>

@@ -38,3 +38,16 @@ extension PlayListViewController {
         }
     }
 }
+
+
+extension PlayListViewController {
+    
+    func setupUI() {
+        
+        let layout = favoritePlaylistCollectionview.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 15
+        let playlistLayout = playlistCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        playlistLayout.minimumLineSpacing = 15
+        
+    }
+}
