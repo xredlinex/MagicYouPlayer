@@ -7,14 +7,18 @@
 //
 
 import UIKit
+//import UPCarouselFlowLayout
 
 class PlayListViewController: UIViewController {
     
     @IBOutlet weak var channelsCollectionView: UICollectionView!
     @IBOutlet weak var playlistCollectionView: UICollectionView!
     @IBOutlet weak var favoritePlaylistCollectionview: UICollectionView!
-    
-    let flowLayout = ZoomAndSnapFlowLayout()
+    @IBOutlet weak var playlistCollectionTextLabel: UILabel!
+    @IBOutlet weak var favoristPlaylistTextLabel: UILabel!
+    @IBOutlet weak var channelPageControl: UIPageControl!
+    @IBOutlet weak var playerOpenCloseImageView: UIImageView!
+    //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
     var favoritePlaylist: [Item] = []
@@ -30,6 +34,8 @@ class PlayListViewController: UIViewController {
     let playlistLink = "playlistItems?"
     let videoLink = "videos?"
     
+    let collectionViewHeaderFooterReuseIdentifier = "MyHeaderFooterClass"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,9 +44,14 @@ class PlayListViewController: UIViewController {
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
-        channelsCollectionView.collectionViewLayout = flowLayout
-        channelsCollectionView.contentInsetAdjustmentBehavior = .always
-//        channelCollectionTimer()
+        setupUI()
+      
+        
+
+//        channelsCollectionView.collectionViewLayout = flowLayout
+        
+        
+        channelCollectionTimer()
     }
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
@@ -68,7 +79,7 @@ extension PlayListViewController {
                            collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
                        } else {
                            let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
-                           collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
                        }
                    }
                }

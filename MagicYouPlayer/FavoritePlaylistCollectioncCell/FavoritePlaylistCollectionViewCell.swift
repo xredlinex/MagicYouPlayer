@@ -15,6 +15,7 @@ class FavoritePlaylistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteTitileTextLabel: UILabel!
     @IBOutlet weak var favoriteViewCountTextLabel: UILabel!
     
+    @IBOutlet weak var previewVideoView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +33,11 @@ extension FavoritePlaylistCollectionViewCell {
             }
         }
         
+        
         favoriteTitileTextLabel.text = playlistItems.snippet?.title ?? "--"
-        favoriteViewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
+        favoriteViewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"
+        
+        previewVideoView.clipsToBounds = true
+        previewVideoView.layer.cornerRadius = 12
     }
 }

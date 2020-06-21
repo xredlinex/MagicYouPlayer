@@ -30,7 +30,7 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
     func updateChanneCell(channel: Item, channelVideo: Item) {
         
         channelTitleTextLabel.text = channel.snippet?.title
-        channelSubscribersCountTextLabel.text = channel.statistics?.subscriberCount ?? "--"
+        channelSubscribersCountTextLabel.text = "\(channel.statistics?.subscriberCount ?? "--") просмотров"
         
         if let urlString = channelVideo.snippet?.thumbnails?.high?.url {
             let url = URL(string: urlString)

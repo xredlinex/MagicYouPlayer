@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -28,6 +28,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         
         switch collectionView {
         case channelsCollectionView:
+            channelPageControl.numberOfPages = channels.count
             return channels.count
         case playlistCollectionView:
             return channelsPlaylists[section].count
@@ -57,5 +58,34 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
             cell.updatePlaylistCell(playlistItems: favoritePlaylist[indexPath.row])
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if collectionView == playlistCollectionView {
+            if let channelTitle = channelsPlaylists[indexPath.section][indexPath.row].snippet?.channelTitle {
+                playlistCollectionTextLabel.text = channelTitle
+            }
+        } else {
+            if let channelTitle = favoritePlaylist[indexPath.row].snippet?.channelTitle {
+                favoristPlaylistTextLabel.text = channelTitle
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == favoritePlaylistCollectionview {
+            return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.width / 2)
+        } else if collectionView == playlistCollectionView {
+            return CGSize(width: collectionView.frame.width / 2.3, height: collectionView.frame.height)
+        } else {
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        }
+    }
+    
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        channelPageControl.currentPage = Int((channelsCollectionView.contentOffset.x / channelsCollectionView.frame.width).rounded(.toNearestOrAwayFromZero)
+        )
     }
 }
