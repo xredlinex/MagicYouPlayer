@@ -37,5 +37,7 @@ extension PlaylistCollectionViewCell {
         
         previewVideoView.clipsToBounds = true
         previewVideoView.layer.cornerRadius = 12
+        
+//        debugPrint(playlistItems.statistics?.viewCount)
     }
 }

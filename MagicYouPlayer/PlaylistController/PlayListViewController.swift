@@ -29,7 +29,7 @@ class PlayListViewController: UIViewController {
     let fourthChannelId = "&id=UCzWdpFOflXTOk5Gsi2aJ67g"
     let channelPart = "part=contentDetails%2Csnippet%2Cstatistics"
     let playlistPart = "part=snippet%2CcontentDetails&maxResults=10&playlistId="
-    let videoPart = "part=contentDetails%2Csnippet%2Cstatistics"
+    let videoPart = "part=contentDetails%2Csnippet%2Cstatistics&id="
     let channelsLink = "channels?"
     let playlistLink = "playlistItems?"
     let videoLink = "videos?"
@@ -45,12 +45,7 @@ class PlayListViewController: UIViewController {
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
         setupUI()
-      
-        
-
-//        channelsCollectionView.collectionViewLayout = flowLayout
-        
-        
+        //        channelsCollectionView.collectionViewLayout = flowLayout
         channelCollectionTimer()
     }
     
@@ -66,24 +61,23 @@ class PlayListViewController: UIViewController {
 extension PlayListViewController {
     
     func channelCollectionTimer() {
-           
-           _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollingChannelCollection(timer:)), userInfo: nil, repeats: true)
-       }
-       
-       @objc func scrollingChannelCollection(timer: Timer) {
-           if let collectionView = channelsCollectionView {
-               for cell in collectionView.visibleCells {
-                   if let indexPath = collectionView.indexPath(for: cell) {
-                       if indexPath.row < channels.count - 1 {
-                           let nextIndexPath = IndexPath.init(row: indexPath.row + 1, section: indexPath.section)
-                           collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
-                       } else {
-                           let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
-                        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
-                       }
-                   }
-               }
-           }
-       }
+        
+        _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollingChannelCollection(timer:)), userInfo: nil, repeats: true)
+    }
     
+    @objc func scrollingChannelCollection(timer: Timer) {
+        if let collectionView = channelsCollectionView {
+            for cell in collectionView.visibleCells {
+                if let indexPath = collectionView.indexPath(for: cell) {
+                    if indexPath.row < channels.count - 1 {
+                        let nextIndexPath = IndexPath.init(row: indexPath.row + 1, section: indexPath.section)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                    } else {
+                        let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
+                    }
+                }
+            }
+        }
+    }
 }

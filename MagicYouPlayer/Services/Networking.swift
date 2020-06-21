@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkService {
     
-    static let apiKey = "&key=AIzaSyAk5mcnqXErmDkUIGiNd6LetKAJLL5a3Cc"
+    static let apiKey = "&key=AIzaSyB2g7-Jj6tZkY13CIxXsiMY_4udXKOmUDQ"
     
     static func getRequest(endPoint: String, part: String, type: String, complition: @escaping (_ object: [Item]) -> ()) {
         

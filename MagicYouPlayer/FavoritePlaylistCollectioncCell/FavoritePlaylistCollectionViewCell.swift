@@ -14,7 +14,6 @@ class FavoritePlaylistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favoritePreviewImageView: UIImageView!
     @IBOutlet weak var favoriteTitileTextLabel: UILabel!
     @IBOutlet weak var favoriteViewCountTextLabel: UILabel!
-    
     @IBOutlet weak var previewVideoView: UIView!
     
     override func awakeFromNib() {
@@ -32,7 +31,6 @@ extension FavoritePlaylistCollectionViewCell {
                 favoritePreviewImageView.kf.setImage(with: url)
             }
         }
-        
         
         favoriteTitileTextLabel.text = playlistItems.snippet?.title ?? "--"
         favoriteViewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"

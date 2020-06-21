@@ -28,8 +28,20 @@ extension PlayListViewController {
     func getPlaylist(playlistId: String) {
         
         NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId) { (items) in
+            DispatchQueue.main.async {
+                self.getVideoStat(videoIdGroup: items)
+            }
+        }
+    }
+    
+    func getVideoStat(videoIdGroup: [Item]) {
+        
+        let idString = videoIdGroup.map { ($0.contentDetails?.videoId ?? "") }.joined(separator: ",")
+        NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: idString) { (items) in
             self.channelsPlaylists.append(items)
-            self.favoritePlaylist = items
+            if self.favoritePlaylist.isEmpty {
+                self.favoritePlaylist = items                
+            }
             DispatchQueue.main.async {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
@@ -38,7 +50,6 @@ extension PlayListViewController {
         }
     }
 }
-
 
 extension PlayListViewController {
     
