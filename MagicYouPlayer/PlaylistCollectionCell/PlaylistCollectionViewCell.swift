@@ -33,7 +33,7 @@ extension PlaylistCollectionViewCell {
             }
         }
         videoTitleTextLabel.text = playlistItems.snippet?.title ?? "--"
-        previewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
+        previewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"
         
         previewVideoView.clipsToBounds = true
         previewVideoView.layer.cornerRadius = 12

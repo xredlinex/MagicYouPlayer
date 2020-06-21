@@ -47,12 +47,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1U-yC-IZU">
-                                        <rect key="frame" x="0.0" y="55" width="237" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="237" height="14.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="H0F-i3-aKd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -61,9 +61,9 @@
                                     <constraint firstItem="N1U-yC-IZU" firstAttribute="leading" secondItem="ZLQ-ep-Qnl" secondAttribute="leading" id="2vL-Bs-jnl"/>
                                     <constraint firstAttribute="trailing" secondItem="GdP-MB-R0t" secondAttribute="trailing" id="F45-cM-K5i"/>
                                     <constraint firstItem="GdP-MB-R0t" firstAttribute="top" secondItem="ZLQ-ep-Qnl" secondAttribute="top" constant="15" id="Mqu-ed-v57"/>
+                                    <constraint firstAttribute="bottom" secondItem="N1U-yC-IZU" secondAttribute="bottom" constant="21.5" id="OQk-x7-8i3"/>
                                     <constraint firstItem="GdP-MB-R0t" firstAttribute="leading" secondItem="ZLQ-ep-Qnl" secondAttribute="leading" id="Pvz-BD-eqD"/>
-                                    <constraint firstAttribute="bottom" secondItem="N1U-yC-IZU" secondAttribute="bottom" constant="7" id="Y2R-YW-W5e"/>
-                                    <constraint firstItem="N1U-yC-IZU" firstAttribute="top" secondItem="GdP-MB-R0t" secondAttribute="bottom" constant="19.5" id="tvd-7h-Gyj"/>
+                                    <constraint firstItem="N1U-yC-IZU" firstAttribute="top" secondItem="GdP-MB-R0t" secondAttribute="bottom" constant="5" id="tvd-7h-Gyj"/>
                                     <constraint firstAttribute="trailing" secondItem="N1U-yC-IZU" secondAttribute="trailing" id="xMq-0A-DHB"/>
                                 </constraints>
                             </view>

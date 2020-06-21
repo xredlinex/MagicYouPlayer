@@ -28,6 +28,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         
         switch collectionView {
         case channelsCollectionView:
+            channelPageControl.numberOfPages = channels.count
             return channels.count
         case playlistCollectionView:
             return channelsPlaylists[section].count
@@ -63,8 +64,13 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if collectionView == playlistCollectionView {
-            
-            debugPrint(channelsPlaylists[indexPath.section][indexPath.row].snippet?.channelTitle)
+            if let channelTitle = channelsPlaylists[indexPath.section][indexPath.row].snippet?.channelTitle {
+                playlistCollectionTextLabel.text = channelTitle
+            }
+        } else {
+            if let channelTitle = favoritePlaylist[indexPath.row].snippet?.channelTitle {
+                favoristPlaylistTextLabel.text = channelTitle
+            }
         }
     }
     
@@ -80,7 +86,11 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        channelPageControl.currentPage = Int((channelsCollectionView.contentOffset.x / channelsCollectionView.frame.width).rounded(.toNearestOrAwayFromZero)
+        )
+    }
+ 
     
     
 }

@@ -14,6 +14,9 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var channelsCollectionView: UICollectionView!
     @IBOutlet weak var playlistCollectionView: UICollectionView!
     @IBOutlet weak var favoritePlaylistCollectionview: UICollectionView!
+    @IBOutlet weak var playlistCollectionTextLabel: UILabel!
+    @IBOutlet weak var favoristPlaylistTextLabel: UILabel!
+    @IBOutlet weak var channelPageControl: UIPageControl!
     
     let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
@@ -48,8 +51,10 @@ class PlayListViewController: UIViewController {
         playlistLayout.minimumLineSpacing = 15
         
 
+        channelsCollectionView.collectionViewLayout = flowLayout
         
-//        channelCollectionTimer()
+        
+        channelCollectionTimer()
     }
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
@@ -77,7 +82,7 @@ extension PlayListViewController {
                            collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
                        } else {
                            let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
-                           collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
                        }
                    }
                }

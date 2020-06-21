@@ -100,9 +100,16 @@
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kri-ho-A8Y">
                                                         <rect key="frame" x="0.0" y="190" width="414" height="44"/>
+                                                        <subviews>
+                                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="wsA-I7-DMf">
+                                                                <rect key="frame" x="187.5" y="3.5" width="39" height="37"/>
+                                                            </pageControl>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="00m-0V-NaA"/>
+                                                            <constraint firstItem="wsA-I7-DMf" firstAttribute="centerY" secondItem="Kri-ho-A8Y" secondAttribute="centerY" id="7or-b6-Zz9"/>
+                                                            <constraint firstItem="wsA-I7-DMf" firstAttribute="centerX" secondItem="Kri-ho-A8Y" secondAttribute="centerX" id="XYR-cZ-mso"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -277,8 +284,11 @@
                         <viewLayoutGuide key="safeArea" id="eTt-0C-QWj"/>
                     </view>
                     <connections>
+                        <outlet property="channelPageControl" destination="wsA-I7-DMf" id="ry5-lC-tI8"/>
                         <outlet property="channelsCollectionView" destination="ezN-7h-xlm" id="8QX-oc-pd6"/>
+                        <outlet property="favoristPlaylistTextLabel" destination="XT1-T5-Vxs" id="JL9-zR-g8Q"/>
                         <outlet property="favoritePlaylistCollectionview" destination="7h0-af-jBc" id="dEr-0U-8TB"/>
+                        <outlet property="playlistCollectionTextLabel" destination="CrM-HA-zzO" id="c5J-qb-wJ9"/>
                         <outlet property="playlistCollectionView" destination="nmw-VN-u6F" id="Mih-tA-zmg"/>
                     </connections>
                 </viewController>

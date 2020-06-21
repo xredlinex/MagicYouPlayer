@@ -35,7 +35,7 @@ extension FavoritePlaylistCollectionViewCell {
         
         
         favoriteTitileTextLabel.text = playlistItems.snippet?.title ?? "--"
-        favoriteViewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
+        favoriteViewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"
         
         previewVideoView.clipsToBounds = true
         previewVideoView.layer.cornerRadius = 12
