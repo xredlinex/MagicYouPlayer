@@ -263,7 +263,7 @@
                                             <action selector="didTapPlayerActionButton:" destination="TqT-6c-GLO" eventType="touchUpInside" id="kh6-wW-o5O"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Close_Open" translatesAutoresizingMaskIntoConstraints="NO" id="vWx-ib-yui">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWx-ib-yui">
                                         <rect key="frame" x="182" y="10" width="40" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="9Dz-Gc-tvr"/>
@@ -332,11 +332,11 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-xV-DfG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="404" height="50"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-eC-KxR">
-                                                                        <rect key="frame" x="187" y="11" width="30" height="27.5"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-eC-KxR">
+                                                                        <rect key="frame" x="182" y="15" width="40" height="20"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="30" id="BEs-Vh-6gO"/>
-                                                                            <constraint firstAttribute="height" constant="30" id="EP0-Kp-Dfg"/>
+                                                                            <constraint firstAttribute="width" constant="40" id="BEs-Vh-6gO"/>
+                                                                            <constraint firstAttribute="height" constant="20" id="EP0-Kp-Dfg"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VJ-1u-kdd">
@@ -346,7 +346,7 @@
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="6VJ-1u-kdd" secondAttribute="bottom" id="2Er-6A-c1Z"/>
                                                                     <constraint firstItem="6VJ-1u-kdd" firstAttribute="top" secondItem="oz4-xV-DfG" secondAttribute="top" id="QhE-vs-QWv"/>
@@ -406,6 +406,7 @@
                     <navigationItem key="navigationItem" id="tYk-i1-CYr"/>
                     <connections>
                         <outlet property="dimmerView" destination="7Cm-dq-ahz" id="V5c-f6-Azp"/>
+                        <outlet property="playerCloseImageView" destination="CsE-eC-KxR" id="vHA-7g-btR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bel-Qh-jtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -476,8 +477,4 @@
             <point key="canvasLocation" x="1928" y="-177"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Close_Open" width="31" height="17"/>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
-    </resources>
 </document>

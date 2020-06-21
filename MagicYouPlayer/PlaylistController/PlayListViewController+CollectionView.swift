@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-    
+extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+  
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         switch (collectionView) {
