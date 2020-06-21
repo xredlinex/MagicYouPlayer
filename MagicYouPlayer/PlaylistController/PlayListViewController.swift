@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import UPCarouselFlowLayout
 
 class PlayListViewController: UIViewController {
     
@@ -30,6 +31,8 @@ class PlayListViewController: UIViewController {
     let playlistLink = "playlistItems?"
     let videoLink = "videos?"
     
+    let collectionViewHeaderFooterReuseIdentifier = "MyHeaderFooterClass"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,9 +41,14 @@ class PlayListViewController: UIViewController {
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
+
+        let layout = favoritePlaylistCollectionview.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 15
+        let playlistLayout = playlistCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        playlistLayout.minimumLineSpacing = 15
         
-        channelsCollectionView.collectionViewLayout = flowLayout
-        channelsCollectionView.contentInsetAdjustmentBehavior = .always
+
+        
 //        channelCollectionTimer()
     }
     

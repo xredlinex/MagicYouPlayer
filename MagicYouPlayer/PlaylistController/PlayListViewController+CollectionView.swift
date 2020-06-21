@@ -60,25 +60,25 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if collectionView == playlistCollectionView {
+            
+            debugPrint(channelsPlaylists[indexPath.section][indexPath.row].snippet?.channelTitle)
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == favoritePlaylistCollectionview {
-            
-            
-            return CGSize(width: collectionView.frame.width / 2 - 5, height: collectionView.frame.width / 2)
-            
+            return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.width / 2)
         } else if collectionView == playlistCollectionView {
-            return CGSize(width: collectionView.frame.width / 3 - 10, height: collectionView.frame.width)
+            return CGSize(width: collectionView.frame.width / 2.3, height: collectionView.frame.height)
         } else {
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
-        
-        
-        
-        
-        
     }
-    
     
 
     
