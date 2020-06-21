@@ -12,21 +12,24 @@ class MediaPlayerViewController: UIViewController {
     
     
     @IBOutlet weak var playerCloseImageView: UIImageView!
-    
     @IBOutlet weak var dimmerView: UIView!
+    
+    var videoId: String?
+    var playlist: [Item] = []
+    var currentPositionInPlaylist: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        debugPrint("player open")
+        debugPrint(videoId)
+        debugPrint(currentPositionInPlaylist)
     }
-    // MARK: - View Life Cycle
+    
      override func awakeFromNib() {
        super.awakeFromNib()
 
-//       modalPresentationCapturesStatusBarAppearance = true //allow this VC to control the status bar appearance
-       modalPresentationStyle = .overFullScreen //dont dismiss the presenting view controller when presented
+       modalPresentationStyle = .overFullScreen
      }
     
     
@@ -35,22 +38,12 @@ class MediaPlayerViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension MediaPlayerViewController {
     
     func setupUI() {
-        
         
         playerCloseImageView.image = UIImage(named: "Close_Open")
     }

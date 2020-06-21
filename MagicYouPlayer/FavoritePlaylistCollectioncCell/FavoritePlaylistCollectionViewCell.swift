@@ -10,7 +10,6 @@ import UIKit
 
 class FavoritePlaylistCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var favoritePreviewImageView: UIImageView!
     @IBOutlet weak var favoriteTitileTextLabel: UILabel!
     @IBOutlet weak var favoriteViewCountTextLabel: UILabel!

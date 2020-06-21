@@ -9,7 +9,7 @@
 import UIKit
 
 extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         switch (collectionView) {
@@ -73,6 +73,11 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        playVideo(collectionView: collectionView, indexPath: indexPath)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == favoritePlaylistCollectionview {
@@ -84,8 +89,47 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         channelPageControl.currentPage = Int((channelsCollectionView.contentOffset.x / channelsCollectionView.frame.width).rounded(.toNearestOrAwayFromZero)
         )
+    }
+}
+
+extension PlayListViewController {
+    
+    func playVideo(collectionView: UICollectionView, indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
+        
+        switch collectionView {
+        case playlistCollectionView:
+            if let videoId = channelsPlaylists[indexPath.section][indexPath.row].id {
+                viewController.videoId = videoId
+                viewController.playlist = channelsPlaylists[indexPath.section]
+                viewController.currentPositionInPlaylist = indexPath.row
+            }
+        case favoritePlaylistCollectionview:
+            if let videoId = favoritePlaylist[indexPath.row].id {
+                viewController.videoId = videoId
+                viewController.playlist = favoritePlaylist
+                viewController.currentPositionInPlaylist = indexPath.row
+            }
+        case channelsCollectionView:
+            for items in channelsPlaylists {
+                if let video = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
+                    if let videoId = video.id {
+                        viewController.videoId = videoId
+                        viewController.playlist = items
+                        viewController.currentPositionInPlaylist = 0
+                    }
+                }
+            }
+        default:
+            return
+        }
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true, completion: nil)
     }
 }
