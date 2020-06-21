@@ -49,7 +49,7 @@
 		972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Extension.swift"; sourceTree = "<group>"; };
 		972CE0DE249CD44200E7377F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		9735EFE6249D7ED600E15F50 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		973F90DE249D5C9D00465A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MagicYouPlayer/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		973F90DE249D5C9D00465A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "MagicYouPlayer/Services/New Group/ViewController.swift"; sourceTree = SOURCE_ROOT; };
 		974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritePlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		97613C66249E197F00F65CC0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 			children = (
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
+				977D7EE2249FA258008CDFC1 /* Extension */,
 				972CE0E0249CD44600E7377F /* Model */,
 				972CE0E2249CD47900E7377F /* Services */,
 				972CE0E1249CD45100E7377F /* PlaylistController */,
@@ -120,7 +121,7 @@
 				972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */,
 				972CE0D0249CCBD900E7377F /* Info.plist */,
 				97ADEFF5249D677A00800BF6 /* GoogleService-Info.plist */,
-				977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */,
+				977D7EE1249FA234008CDFC1 /* workinkitchen */,
 			);
 			path = MagicYouPlayer;
 			sourceTree = "<group>";
@@ -148,8 +149,6 @@
 		972CE0E2249CD47900E7377F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				973F90DE249D5C9D00465A20 /* ViewController.swift */,
-				97613C66249E197F00F65CC0 /* FirstViewController.swift */,
 				9735EFE6249D7ED600E15F50 /* Networking.swift */,
 			);
 			path = Services;
@@ -188,6 +187,23 @@
 				97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */,
 			);
 			path = PlaylistCollectionCell;
+			sourceTree = "<group>";
+		};
+		977D7EE1249FA234008CDFC1 /* workinkitchen */ = {
+			isa = PBXGroup;
+			children = (
+				973F90DE249D5C9D00465A20 /* ViewController.swift */,
+				97613C66249E197F00F65CC0 /* FirstViewController.swift */,
+			);
+			path = workinkitchen;
+			sourceTree = "<group>";
+		};
+		977D7EE2249FA258008CDFC1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E61010B2B1DCCDFC0ED1D485 /* Frameworks */ = {
