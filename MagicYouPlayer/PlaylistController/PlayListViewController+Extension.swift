@@ -40,9 +40,6 @@ extension PlayListViewController {
         NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: idString) { (items) in
             self.channelsPlaylists.append(items)
             self.favoritePlaylist = items
-//            if self.favoritePlaylist.isEmpty {
-//                self.favoritePlaylist = items                
-//            }
             DispatchQueue.main.async {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
@@ -65,3 +62,28 @@ extension PlayListViewController {
         playerOpenCloseImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
     }
 }
+
+extension PlayListViewController {
+    
+    func channelCollectionTimer() {
+        
+        _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollingChannelCollection(timer:)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func scrollingChannelCollection(timer: Timer) {
+        if let collectionView = channelsCollectionView {
+            for cell in collectionView.visibleCells {
+                if let indexPath = collectionView.indexPath(for: cell) {
+                    if indexPath.row < channels.count - 1 {
+                        let nextIndexPath = IndexPath.init(row: indexPath.row + 1, section: indexPath.section)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                    } else {
+                        let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
+                        collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+                    }
+                }
+            }
+        }
+    }
+}
+

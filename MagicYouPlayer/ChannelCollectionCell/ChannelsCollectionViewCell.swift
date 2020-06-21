@@ -41,7 +41,6 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
 
 extension ChannelsCollectionViewCell {
     
-    
     func setupUI() {
         
         playButtonView.clipsToBounds = true

@@ -33,9 +33,7 @@ class PlayListViewController: UIViewController {
     let channelsLink = "channels?"
     let playlistLink = "playlistItems?"
     let videoLink = "videos?"
-    
-    let collectionViewHeaderFooterReuseIdentifier = "MyHeaderFooterClass"
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +49,6 @@ class PlayListViewController: UIViewController {
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
         
-
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
         viewController.modalPresentationStyle = .overCurrentContext
@@ -61,26 +57,3 @@ class PlayListViewController: UIViewController {
     }
 }
 
-extension PlayListViewController {
-    
-    func channelCollectionTimer() {
-        
-        _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollingChannelCollection(timer:)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func scrollingChannelCollection(timer: Timer) {
-        if let collectionView = channelsCollectionView {
-            for cell in collectionView.visibleCells {
-                if let indexPath = collectionView.indexPath(for: cell) {
-                    if indexPath.row < channels.count - 1 {
-                        let nextIndexPath = IndexPath.init(row: indexPath.row + 1, section: indexPath.section)
-                        collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
-                    } else {
-                        let nextIndexPath = IndexPath(row: 0, section: indexPath.section)
-                        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
-                    }
-                }
-            }
-        }
-    }
-}
