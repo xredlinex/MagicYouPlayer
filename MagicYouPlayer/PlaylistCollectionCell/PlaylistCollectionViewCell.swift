@@ -10,6 +10,7 @@ import UIKit
 
 class PlaylistCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var previewVideoView: UIView!
     @IBOutlet weak var playlistPreviewImageView: UIImageView!
     @IBOutlet weak var videoTitleTextLabel: UILabel!
     @IBOutlet weak var previewCountTextLabel: UILabel!
@@ -33,5 +34,8 @@ extension PlaylistCollectionViewCell {
         }
         videoTitleTextLabel.text = playlistItems.snippet?.title ?? "--"
         previewCountTextLabel.text = playlistItems.statistics?.viewCount ?? "--"
+        
+        previewVideoView.clipsToBounds = true
+        previewVideoView.layer.cornerRadius = 12
     }
 }

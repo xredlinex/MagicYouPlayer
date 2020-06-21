@@ -38,6 +38,7 @@ class PlayListViewController: UIViewController {
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
+        
         channelsCollectionView.collectionViewLayout = flowLayout
         channelsCollectionView.contentInsetAdjustmentBehavior = .always
 //        channelCollectionTimer()

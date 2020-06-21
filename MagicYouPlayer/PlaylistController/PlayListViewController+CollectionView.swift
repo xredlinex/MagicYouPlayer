@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -58,4 +58,29 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == favoritePlaylistCollectionview {
+            
+            
+            return CGSize(width: collectionView.frame.width / 2 - 5, height: collectionView.frame.width / 2)
+            
+        } else if collectionView == playlistCollectionView {
+            return CGSize(width: collectionView.frame.width / 3 - 10, height: collectionView.frame.width)
+        } else {
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+
+    
+    
 }
