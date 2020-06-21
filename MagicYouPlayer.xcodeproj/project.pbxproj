@@ -18,7 +18,6 @@
 		972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */; };
 		972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DE249CD44200E7377F /* ContentModel.swift */; };
 		9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9735EFE6249D7ED600E15F50 /* Networking.swift */; };
-		973F90DF249D5C9D00465A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F90DE249D5C9D00465A20 /* ViewController.swift */; };
 		974C3F9C249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */; };
 		974C3F9D249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */; };
 		97613C67249E197F00F65CC0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C66249E197F00F65CC0 /* FirstViewController.swift */; };
@@ -29,7 +28,8 @@
 		97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */; };
 		97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */; };
 		977D7EE0249F96B7008CDFC1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */; };
-		97ADEFF6249D677A00800BF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97ADEFF5249D677A00800BF6 /* GoogleService-Info.plist */; };
+		97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BA7A86249FC2A00055C894 /* ViewController.swift */; };
+		97BA7A89249FCE600055C894 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97BA7A88249FCE600055C894 /* GoogleService-Info.plist */; };
 		97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC38B8249D3561008B483C /* ChannelModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,6 @@
 		972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Extension.swift"; sourceTree = "<group>"; };
 		972CE0DE249CD44200E7377F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		9735EFE6249D7ED600E15F50 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		973F90DE249D5C9D00465A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "MagicYouPlayer/Services/New Group/ViewController.swift"; sourceTree = SOURCE_ROOT; };
 		974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritePlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		97613C66249E197F00F65CC0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +59,8 @@
 		97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		97ADEFF5249D677A00800BF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		97BA7A86249FC2A00055C894 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97BA7A88249FCE600055C894 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97FC38B8249D3561008B483C /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +106,7 @@
 		972CE0C1249CCBD700E7377F /* MagicYouPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				97BA7A88249FCE600055C894 /* GoogleService-Info.plist */,
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
 				977D7EE2249FA258008CDFC1 /* Extension */,
@@ -120,7 +121,6 @@
 				972CE0CB249CCBD900E7377F /* Assets.xcassets */,
 				972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */,
 				972CE0D0249CCBD900E7377F /* Info.plist */,
-				97ADEFF5249D677A00800BF6 /* GoogleService-Info.plist */,
 				977D7EE1249FA234008CDFC1 /* workinkitchen */,
 			);
 			path = MagicYouPlayer;
@@ -192,7 +192,7 @@
 		977D7EE1249FA234008CDFC1 /* workinkitchen */ = {
 			isa = PBXGroup;
 			children = (
-				973F90DE249D5C9D00465A20 /* ViewController.swift */,
+				97BA7A86249FC2A00055C894 /* ViewController.swift */,
 				97613C66249E197F00F65CC0 /* FirstViewController.swift */,
 			);
 			path = workinkitchen;
@@ -278,9 +278,9 @@
 				974C3F9D249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib in Resources */,
 				97613C6E249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib in Resources */,
 				97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */,
-				97ADEFF6249D677A00800BF6 /* GoogleService-Info.plist in Resources */,
 				972CE0CC249CCBD900E7377F /* Assets.xcassets in Resources */,
 				972CE0CA249CCBD700E7377F /* Main.storyboard in Resources */,
+				97BA7A89249FCE600055C894 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				973F90DF249D5C9D00465A20 /* ViewController.swift in Sources */,
 				97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */,
 				9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */,
 				97613C71249E5F4900F65CC0 /* ZoomFlowLayout.swift in Sources */,
@@ -348,6 +347,7 @@
 				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
 				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
 				97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */,
+				97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */,
 				97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

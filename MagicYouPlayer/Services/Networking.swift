@@ -10,13 +10,14 @@ import Alamofire
 
 class NetworkService {
     
-    static let apiKey = "&key=AIzaSyAk5mcnqXErmDkUIGiNd6LetKAJLL5a3Cc"
+    static let apiKey = "&key=AIzaSyB2g7-Jj6tZkY13CIxXsiMY_4udXKOmUDQ"
     
     static func getRequest(endPoint: String, part: String, type: String, complition: @escaping (_ object: [Item]) -> ()) {
         
         let baseApiLink = "https://www.googleapis.com/youtube/v3/"
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
+            debugPrint(urlCorrect)
             AF.request(urlCorrect, method: .get, encoding: URLEncoding.default).responseData { (response) in
                 if let data = response.data {
                     do {
