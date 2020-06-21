@@ -15,12 +15,10 @@ class PlaylistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var videoTitleTextLabel: UILabel!
     @IBOutlet weak var previewCountTextLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
 }
 
 extension PlaylistCollectionViewCell {
@@ -37,7 +35,5 @@ extension PlaylistCollectionViewCell {
         
         previewVideoView.clipsToBounds = true
         previewVideoView.layer.cornerRadius = 12
-        
-//        debugPrint(playlistItems.statistics?.viewCount)
     }
 }
