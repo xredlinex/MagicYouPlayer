@@ -18,9 +18,6 @@ class MediaPlayerViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var currentTimePositionTextLabel: UILabel!
     @IBOutlet weak var videoDurationLeftTextLabel: UILabel!
-    
-//    @IBOutlet weak var videoDurationTextLabel: UILabel!
-    
     @IBOutlet weak var videoTitileTextLabel: UILabel!
     @IBOutlet weak var videoViewsCountTextLabel: UILabel!
     @IBOutlet weak var soundVolumeSlider: UISlider!
@@ -39,35 +36,11 @@ class MediaPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let id = videoId {
-//            debugPrint(id)
-//            getVideoDirrectUrl(path + id)
-//        }
-        
-        
         if let recieveUrl = url {
           mediaPlayer = AVPlayer(url: recieveUrl)
         }
-        
-        
-        
-//        mediaPlayer.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
-//              timeObserver()
-//              playerLayer = AVPlayerLayer(player: mediaPlayer)
-//              playerLayer.videoGravity = .resize
-//
-//              videoMediaPlayerView.layer.addSublayer(playerLayer)
-        
-        
-        
-        
-        
-        
         playerSetup()
         setupUI()
-      
-         
-        
     }
     
     override func awakeFromNib() {
@@ -77,26 +50,10 @@ class MediaPlayerViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        debugPrint("load sub")
         playerLayer.frame = videoMediaPlayerView.bounds
-        debugPrint("layout")
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        
-        
-        if keyPath == "duration", let duration = mediaPlayer.currentItem?.duration.seconds, duration > 0.0 {
-            if let currentItem = mediaPlayer.currentItem {
-                
-                
-                let timeleft = currentItem.duration - currentItem.currentTime()
-                let lefty = stringTime(from: timeleft)
-                debugPrint(lefty)
-//                self.videoDurationTextLabel.text = stringTime(from: currentItem.duration)
-            }
-        }
-    }
+
     
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -132,10 +89,6 @@ class MediaPlayerViewController: UIViewController {
     @IBAction func sliderValueChanged(_ sender: Any) {
 
     }
-    
-    
-    
-    
 }
 
 extension MediaPlayerViewController {
@@ -143,7 +96,6 @@ extension MediaPlayerViewController {
     func setupUI() {
         
         playerCloseImageView.image = UIImage(named: "Close_Open")
-        
         playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
         
     }
@@ -153,72 +105,55 @@ extension MediaPlayerViewController {
     
     func playerSetup() {
         
-//        mediaPlayer = AVPlayer(url: url)
-        
-        
         mediaPlayer.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         timeObserver()
         playerLayer = AVPlayerLayer(player: mediaPlayer)
         playerLayer.frame = videoMediaPlayerView.bounds
         playerLayer.videoGravity = .resize
         videoMediaPlayerView.layer.addSublayer(playerLayer)
-       
+    }
+}
+
+extension MediaPlayerViewController {
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "duration", let duration = mediaPlayer.currentItem?.duration.seconds, duration > 0.0 {
+            if let currentItem = mediaPlayer.currentItem {
+                self.videoDurationLeftTextLabel.text = stringTime(from: currentItem.duration)
+            }
+        }
     }
     
-
-    
-    
-  
+    func timeObserver() {
+        let timeInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        _ = mediaPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] time in
+            guard let currentItem = self?.mediaPlayer.currentItem else {return}
+            self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
+            self?.timeSlider.minimumValue = 0
+            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
+            if let timeLeft = self?.stringTime(from: currentItem.duration - currentItem.currentTime()) {
+                self?.videoDurationLeftTextLabel.text = "- \(timeLeft)"
+            }
+            self?.currentTimePositionTextLabel.text = self?.stringTime(from: currentItem.currentTime())
+        })
+    }
 }
 
 extension MediaPlayerViewController {
-    
-        func timeObserver() {
-            let timeInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-            _ = mediaPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] time in
-                guard let currentItem = self?.mediaPlayer.currentItem else {return}
-                self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
-                self?.timeSlider.minimumValue = 0
-                self?.timeSlider.value = Float(currentItem.currentTime().seconds)
-                
-                if let timeLeft = self?.stringTime(from: currentItem.duration - currentItem.currentTime()) {
-                    self?.videoDurationLeftTextLabel.text = "- \(timeLeft)"
-                }
-                self?.currentTimePositionTextLabel.text = self?.stringTime(from: currentItem.currentTime())
-            })
-            
-    
-            
-            
-            
-        }
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-extension MediaPlayerViewController {
-    
     
     func stringTime(from time: CMTime) -> String {
-                let totalSeconds = CMTimeGetSeconds(time)
-                let hours = Int(totalSeconds/3600)
-                let minutes = Int(totalSeconds/60) % 60
-                let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
-                if hours > 0 {
-                    return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
-                }else {
-                    return String(format: "%02i:%02i", arguments: [minutes,seconds])
-                }
-            }
+        
+        let totalSeconds = CMTimeGetSeconds(time)
+        let hours = Int(totalSeconds/3600)
+        let minutes = Int(totalSeconds/60) % 60
+        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
+        if hours > 0 {
+            return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
+        }else {
+            return String(format: "%02i:%02i", arguments: [minutes,seconds])
+        }
+    }
 }
 
 
@@ -232,10 +167,8 @@ extension MediaPlayerViewController {
             DispatchQueue.main.async {
                 if let videoUrl = videoInfo.highestQualityPlayableLink {
                     if let url = URL(string: videoUrl) {
-//                        self.url = url
-//                        self.playerSetup(url: url)
-                        
                         debugPrint(url)
+                        //                        sent ur to video or blayer
                     }
                 }
             }

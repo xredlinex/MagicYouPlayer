@@ -373,13 +373,13 @@
                                                                             <action selector="sliderValueChanged:" destination="nzS-ba-guq" eventType="valueChanged" id="ybU-bn-Iyo"/>
                                                                         </connections>
                                                                     </slider>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQn-4O-wFN">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQn-4O-wFN">
                                                                         <rect key="frame" x="18" y="50" width="184" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iq5-VV-Z1V">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iq5-VV-Z1V">
                                                                         <rect key="frame" x="202" y="50" width="184" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -409,7 +409,7 @@
                                                                             <constraint firstAttribute="height" constant="30" id="bFB-fA-5Uw"/>
                                                                         </constraints>
                                                                     </slider>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-Bu-BLp">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sound_Min" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-Bu-BLp">
                                                                         <rect key="frame" x="18" y="275.5" width="25" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="MRM-FZ-iCZ"/>
@@ -422,7 +422,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3W-i9-KlX">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="40"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h1M-79-gbH">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prev" translatesAutoresizingMaskIntoConstraints="NO" id="h1M-79-gbH">
                                                                                         <rect key="frame" x="41" y="5" width="30" height="30"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="30" id="v2s-CO-2nJ"/>
@@ -449,7 +449,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-Ri-fIn">
                                                                                 <rect key="frame" x="212" y="0.0" width="112" height="40"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-Tu-d6J">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Next" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-Tu-d6J">
                                                                                         <rect key="frame" x="41" y="5" width="30" height="30"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="30" id="24e-04-1mE"/>
@@ -492,7 +492,7 @@
                                                                                     <constraint firstAttribute="bottom" secondItem="FJj-Xr-dZv" secondAttribute="bottom" id="xOC-Dc-bOI"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="glf-LW-AZg">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="glf-LW-AZg">
                                                                                 <rect key="frame" x="147" y="5" width="30" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="0iL-tg-dVS"/>
@@ -518,7 +518,7 @@
                                                                             <constraint firstAttribute="bottom" secondItem="ugB-Ri-fIn" secondAttribute="bottom" id="yME-Rs-Sfr"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mSf-Jf-yjL">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sound_Max" translatesAutoresizingMaskIntoConstraints="NO" id="mSf-Jf-yjL">
                                                                         <rect key="frame" x="361" y="275.5" width="25" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="4Z8-ZJ-ScP"/>
@@ -692,4 +692,11 @@
             <point key="canvasLocation" x="1928" y="-177"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Next" width="31" height="30"/>
+        <image name="Play" width="31" height="30"/>
+        <image name="Prev" width="32" height="30"/>
+        <image name="Sound_Max" width="25" height="25"/>
+        <image name="Sound_Min" width="25" height="25"/>
+    </resources>
 </document>
