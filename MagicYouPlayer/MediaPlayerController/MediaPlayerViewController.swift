@@ -20,6 +20,7 @@ class MediaPlayerViewController: UIViewController {
     @IBOutlet weak var videoDurationLeftTextLabel: UILabel!
     @IBOutlet weak var videoTitileTextLabel: UILabel!
     @IBOutlet weak var videoViewsCountTextLabel: UILabel!
+    
     @IBOutlet weak var soundVolumeSlider: UISlider!
     @IBOutlet weak var playPauseImageView: UIImageView!
     
@@ -68,33 +69,26 @@ class MediaPlayerViewController: UIViewController {
     }
     
     @IBAction func didTapPlayPauseActionButton(_ sender: Any) {
-//        playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
-//        isPlaying = !isPlaying
         
         if isPlaying {
             mediaPlayer.pause()
-//            sender.setTitle("Play", for: .normal)
         }else {
             mediaPlayer.play()
-//            sender.setTitle("Pause", for: .normal)
         }
-        
+        playPauseImageView.image = !isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
         isPlaying = !isPlaying
-        
-        
-        
     }
     
     
     @IBAction func sliderValueChanged(_ sender: Any) {
-
+        mediaPlayer.seek(to: CMTimeMake(value: Int64(timeSlider.value * 1000), timescale: 1000))
     }
 }
 
 extension MediaPlayerViewController {
     
     func setupUI() {
-        
+        timeSlider.value = 0
         playerCloseImageView.image = UIImage(named: "Close_Open")
         playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
         
@@ -121,6 +115,8 @@ extension MediaPlayerViewController {
         if keyPath == "duration", let duration = mediaPlayer.currentItem?.duration.seconds, duration > 0.0 {
             if let currentItem = mediaPlayer.currentItem {
                 self.videoDurationLeftTextLabel.text = stringTime(from: currentItem.duration)
+            } else {
+                debugPrint("zzzzz")
             }
         }
     }
