@@ -11,6 +11,7 @@ import AVFoundation
 
 class MediaPlayerViewController: UIViewController {
     
+    @IBOutlet weak var backgroundPlayerView: UIView!
     @IBOutlet weak var dimmerView: UIView!
     @IBOutlet weak var playerCloseImageView: UIImageView!
     @IBOutlet weak var videoMediaPlayerView: UIView!

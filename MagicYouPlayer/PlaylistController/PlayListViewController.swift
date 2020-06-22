@@ -18,6 +18,10 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var favoristPlaylistTextLabel: UILabel!
     @IBOutlet weak var channelPageControl: UIPageControl!
     @IBOutlet weak var playerOpenCloseImageView: UIImageView!
+    @IBOutlet weak var openPlayerView: UIView!
+    
+    
+    
     //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
@@ -42,10 +46,40 @@ class PlayListViewController: UIViewController {
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
+        
+        
+        
         setupUI()
         //        channelsCollectionView.collectionViewLayout = flowLayout
         channelCollectionTimer()
+        
+        
+        let colorOne = UIColor(red: 235/255, green: 89/255, blue: 162/255, alpha: 1).cgColor
+        let  colorTwo = UIColor(red: 244/255, green: 94/255, blue: 154/255, alpha: 1).cgColor
+        
+        openPlayerView.setupGradient([colorOne, colorTwo])
+        
+        
+        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+        
+        
+        openPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
         

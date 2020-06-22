@@ -29,8 +29,9 @@
 		97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */; };
 		977D7EE0249F96B7008CDFC1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */; };
 		97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BA7A86249FC2A00055C894 /* ViewController.swift */; };
-		97BA7A89249FCE600055C894 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97BA7A88249FCE600055C894 /* GoogleService-Info.plist */; };
 		97F34E7B24A152F9000B75EC /* MediaPlayerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */; };
+		97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E8024A16F01000B75EC /* UIView+Extension.swift */; };
+		97F34E8524A17866000B75EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F34E8424A17866000B75EC /* GoogleService-Info.plist */; };
 		97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC38B8249D3561008B483C /* ChannelModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +62,9 @@
 		97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		97BA7A86249FC2A00055C894 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		97BA7A88249FCE600055C894 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaPlayerViewController+Extension.swift"; sourceTree = "<group>"; };
+		97F34E8024A16F01000B75EC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		97F34E8424A17866000B75EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97FC38B8249D3561008B483C /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +110,7 @@
 		972CE0C1249CCBD700E7377F /* MagicYouPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				97BA7A88249FCE600055C894 /* GoogleService-Info.plist */,
+				97F34E8424A17866000B75EC /* GoogleService-Info.plist */,
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
 				977D7EE2249FA258008CDFC1 /* Extension */,
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				977D7EDF249F96B7008CDFC1 /* UIImage+Extension.swift */,
+				97F34E8024A16F01000B75EC /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,7 +286,7 @@
 				97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */,
 				972CE0CC249CCBD900E7377F /* Assets.xcassets in Resources */,
 				972CE0CA249CCBD700E7377F /* Main.storyboard in Resources */,
-				97BA7A89249FCE600055C894 /* GoogleService-Info.plist in Resources */,
+				97F34E8524A17866000B75EC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +351,7 @@
 				972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */,
 				977D7EE0249F96B7008CDFC1 /* UIImage+Extension.swift in Sources */,
 				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
+				97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */,
 				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
 				97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */,
 				97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */,

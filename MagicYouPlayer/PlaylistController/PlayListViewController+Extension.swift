@@ -15,6 +15,7 @@ extension PlayListViewController {
         
         NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId) { (items) in
             self.channels = items
+            debugPrint(items.count)
             DispatchQueue.main.async {
                 for channel in self.channels {
                     if let playlistId = channel.contentDetails?.relatedPlaylists?.uploads {
