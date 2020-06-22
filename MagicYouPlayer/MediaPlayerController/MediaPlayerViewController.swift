@@ -30,7 +30,7 @@ class MediaPlayerViewController: UIViewController {
     var playlist: [Item] = []
     var currentPositionInPlaylist: Int?
     var url: URL?
-    var isPlaying = false
+    var isPlaying = true
     var path = "https://www.youtube.com/watch?v="
     var observerStatus: NSKeyValueObservation?
 
@@ -70,7 +70,6 @@ class MediaPlayerViewController: UIViewController {
     @IBAction func didTapPlayPauseActionButton(_ sender: Any) {
         playVideo()
     }
-    
     
     @IBAction func sliderDurationValueDidChanged(_ sender: Any) {
         mediaPlayer.seek(to: CMTimeMake(value: Int64(timeSlider.value * 1000), timescale: 1000))
@@ -112,7 +111,6 @@ extension MediaPlayerViewController {
         playerLayer.videoGravity = .resize
         videoMediaPlayerView.layer.addSublayer(playerLayer)
         mediaPlayer.play()
-        isPlaying = true
     }
 }
 
@@ -181,9 +179,6 @@ extension MediaPlayerViewController {
     }
 }
 
-
-
-
 extension MediaPlayerViewController {
     
     func playVideo() {
@@ -198,27 +193,35 @@ extension MediaPlayerViewController {
     
     func previousVideo() {
         
-
-        
-        
+        if let position = currentPositionInPlaylist {
+            if position != playlist.startIndex {
+                if let id = playlist[position - 1].id {
+                    currentPositionInPlaylist = position - 1
+                    getVideoDirrectUrl(id)
+                }
+            } else {
+                if let id = playlist[playlist.endIndex - 1].id {
+                    currentPositionInPlaylist = playlist.endIndex - 1
+                    getVideoDirrectUrl(id)
+                }
+            }
+        }
     }
     
     func nextVideo() {
 
         if let position = currentPositionInPlaylist {
-            if position != playlist.endIndex - 1{
+            if position != playlist.endIndex - 1 {
                 if let id = playlist[position + 1].id {
+                    currentPositionInPlaylist = position + 1
                     getVideoDirrectUrl(id)
                 }
-                currentPositionInPlaylist = position + 1
             } else {
-                currentPositionInPlaylist = 0
-                if let id = playlist[0].id {
+                if let id = playlist[playlist.startIndex].id {
+                    currentPositionInPlaylist = playlist.startIndex
                  getVideoDirrectUrl(id)
                 }
             }
-        } else {
-            debugPrint("no current playlist error")
         }
     }
 }
