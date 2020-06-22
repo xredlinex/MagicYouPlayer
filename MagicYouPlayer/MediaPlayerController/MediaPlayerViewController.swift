@@ -32,13 +32,13 @@ class MediaPlayerViewController: UIViewController {
     var url: URL?
     var isPlaying = true
     var path = "https://www.youtube.com/watch?v="
-    var observerStatus: NSKeyValueObservation?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let recieveUrl = url {
+        if let recieveUrl = url, let id = videoId {
             mediaPlayer = AVPlayer(url: recieveUrl)
+            updatingItemsInfo(id: id)
         }
         
         playerSetup()
@@ -84,11 +84,20 @@ class MediaPlayerViewController: UIViewController {
 
 
 
-
-
-
-
-
+extension MediaPlayerViewController {
+    
+    func updatingItemsInfo(id: String) {
+        
+        if let currentItem = playlist.first(where: { $0.id == id}) {
+            videoTitileTextLabel.text = currentItem.snippet?.title ?? "----"
+            if let views = currentItem.statistics?.viewCount {
+                videoViewsCountTextLabel.text = "\(views) просмотра"
+            }
+            
+            
+        }
+    }
+}
 
 extension MediaPlayerViewController {
     
@@ -138,6 +147,8 @@ extension MediaPlayerViewController {
             }
             self?.currentTimePositionTextLabel.text = self?.stringTime(from: currentItem.currentTime())
         })
+        
+        
     }
 }
 
@@ -168,7 +179,7 @@ extension MediaPlayerViewController {
                 if let videoUrl = videoInfo.highestQualityPlayableLink {
                     if let url = URL(string: videoUrl) {
                         DispatchQueue.main.async {
-                           self.mediaPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
+                            self.mediaPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
                         }
                     }
                 }
@@ -195,31 +206,39 @@ extension MediaPlayerViewController {
         
         if let position = currentPositionInPlaylist {
             if position != playlist.startIndex {
+                
                 if let id = playlist[position - 1].id {
+                    
                     currentPositionInPlaylist = position - 1
                     getVideoDirrectUrl(id)
+                    updatingItemsInfo(id: id)
                 }
             } else {
                 if let id = playlist[playlist.endIndex - 1].id {
+                    
                     currentPositionInPlaylist = playlist.endIndex - 1
                     getVideoDirrectUrl(id)
+                    updatingItemsInfo(id: id)
                 }
             }
         }
     }
     
     func nextVideo() {
-
+        
         if let position = currentPositionInPlaylist {
             if position != playlist.endIndex - 1 {
                 if let id = playlist[position + 1].id {
+                    
                     currentPositionInPlaylist = position + 1
                     getVideoDirrectUrl(id)
+                    updatingItemsInfo(id: id)
                 }
             } else {
                 if let id = playlist[playlist.startIndex].id {
                     currentPositionInPlaylist = playlist.startIndex
-                 getVideoDirrectUrl(id)
+                    getVideoDirrectUrl(id)
+                    updatingItemsInfo(id: id)
                 }
             }
         }
