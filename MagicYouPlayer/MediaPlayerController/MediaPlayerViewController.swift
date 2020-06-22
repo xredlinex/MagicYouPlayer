@@ -9,7 +9,6 @@
 import UIKit
 import YoutubeDirectLinkExtractor
 import AVFoundation
-import MediaPlayer
 
 class MediaPlayerViewController: UIViewController {
     
@@ -33,11 +32,7 @@ class MediaPlayerViewController: UIViewController {
     var url: URL?
     var isPlaying = false
     var path = "https://www.youtube.com/watch?v="
-    
-    var outputVolumeObserve: NSKeyValueObservation?
-    let audioSession = AVAudioSession.sharedInstance()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +42,10 @@ class MediaPlayerViewController: UIViewController {
         
         playerSetup()
         setupUI()
+        
+        debugPrint(videoId)
+        debugPrint(url)
+        debugPrint(currentPositionInPlaylist)
     }
     
     override func awakeFromNib() {
@@ -59,28 +58,20 @@ class MediaPlayerViewController: UIViewController {
         playerLayer.frame = videoMediaPlayerView.bounds
     }
     
-    
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func didTapPreviousMediaActionButton(_ sender: Any) {
+        previousVideo()
     }
     
     @IBAction func didTapNextMediaActionButton(_ sender: Any) {
+        nextVideo()
     }
     
     @IBAction func didTapPlayPauseActionButton(_ sender: Any) {
-        
-        if isPlaying {
-            mediaPlayer.pause()
-        }else {
-            mediaPlayer.play()
-        }
-        playPauseImageView.image = !isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
-        isPlaying = !isPlaying
+        playVideo()
     }
     
     
@@ -91,13 +82,17 @@ class MediaPlayerViewController: UIViewController {
     @IBAction func sliderSoundVolumeDidChanged(_ sender: Any) {
         mediaPlayer.volume = Float(soundVolumeSlider.value)
     }
-    
-    
-    
-    
-    
-    
 }
+
+
+
+
+
+
+
+
+
+
 
 extension MediaPlayerViewController {
     
@@ -186,3 +181,28 @@ extension MediaPlayerViewController {
 }
 
 
+extension MediaPlayerViewController {
+    
+    func playVideo() {
+        if isPlaying {
+            mediaPlayer.pause()
+        }else {
+            mediaPlayer.play()
+        }
+        playPauseImageView.image = !isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
+        isPlaying = !isPlaying
+    }
+    
+    func previousVideo() {
+        
+    }
+    
+    func nextVideo() {
+        
+        
+        
+        
+        
+        
+    }
+}
