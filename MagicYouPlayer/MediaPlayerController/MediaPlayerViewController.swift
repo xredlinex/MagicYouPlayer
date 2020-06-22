@@ -9,6 +9,7 @@
 import UIKit
 import YoutubeDirectLinkExtractor
 import AVFoundation
+import MediaPlayer
 
 class MediaPlayerViewController: UIViewController {
     
@@ -33,12 +34,17 @@ class MediaPlayerViewController: UIViewController {
     var isPlaying = false
     var path = "https://www.youtube.com/watch?v="
     
+    var outputVolumeObserve: NSKeyValueObservation?
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let recieveUrl = url {
-          mediaPlayer = AVPlayer(url: recieveUrl)
+            mediaPlayer = AVPlayer(url: recieveUrl)
         }
+        
         playerSetup()
         setupUI()
     }
@@ -53,7 +59,6 @@ class MediaPlayerViewController: UIViewController {
         playerLayer.frame = videoMediaPlayerView.bounds
     }
     
-
     
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -68,33 +73,36 @@ class MediaPlayerViewController: UIViewController {
     }
     
     @IBAction func didTapPlayPauseActionButton(_ sender: Any) {
-//        playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
-//        isPlaying = !isPlaying
         
         if isPlaying {
             mediaPlayer.pause()
-//            sender.setTitle("Play", for: .normal)
         }else {
             mediaPlayer.play()
-//            sender.setTitle("Pause", for: .normal)
         }
-        
+        playPauseImageView.image = !isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
         isPlaying = !isPlaying
-        
-        
-        
     }
     
     
-    @IBAction func sliderValueChanged(_ sender: Any) {
-
+    @IBAction func sliderDurationValueDidChanged(_ sender: Any) {
+        mediaPlayer.seek(to: CMTimeMake(value: Int64(timeSlider.value * 1000), timescale: 1000))
     }
+    
+    @IBAction func sliderSoundVolumeDidChanged(_ sender: Any) {
+        mediaPlayer.volume = Float(soundVolumeSlider.value)
+    }
+    
+    
+    
+    
+    
+    
 }
 
 extension MediaPlayerViewController {
     
     func setupUI() {
-        
+        timeSlider.value = 0
         playerCloseImageView.image = UIImage(named: "Close_Open")
         playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
         
@@ -157,7 +165,6 @@ extension MediaPlayerViewController {
 }
 
 
-
 extension MediaPlayerViewController {
     
     func getVideoDirrectUrl(_ videoString: String) {
@@ -177,3 +184,5 @@ extension MediaPlayerViewController {
         }
     }
 }
+
+
