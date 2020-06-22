@@ -32,6 +32,7 @@ class MediaPlayerViewController: UIViewController {
     var url: URL?
     var isPlaying = false
     var path = "https://www.youtube.com/watch?v="
+    var observerStatus: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +43,6 @@ class MediaPlayerViewController: UIViewController {
         
         playerSetup()
         setupUI()
-        
-        debugPrint(videoId)
-        debugPrint(url)
-        debugPrint(currentPositionInPlaylist)
     }
     
     override func awakeFromNib() {
@@ -114,6 +111,8 @@ extension MediaPlayerViewController {
         playerLayer.frame = videoMediaPlayerView.bounds
         playerLayer.videoGravity = .resize
         videoMediaPlayerView.layer.addSublayer(playerLayer)
+        mediaPlayer.play()
+        isPlaying = true
     }
 }
 
@@ -132,6 +131,7 @@ extension MediaPlayerViewController {
         let timeInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         _ = mediaPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] time in
             guard let currentItem = self?.mediaPlayer.currentItem else {return}
+            guard currentItem.status.rawValue == AVPlayer.Status.readyToPlay.rawValue else {return}
             self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
             self?.timeSlider.minimumValue = 0
             self?.timeSlider.value = Float(currentItem.currentTime().seconds)
@@ -162,15 +162,16 @@ extension MediaPlayerViewController {
 
 extension MediaPlayerViewController {
     
-    func getVideoDirrectUrl(_ videoString: String) {
+    func getVideoDirrectUrl(_ id: String) {
         
         let extractor = YoutubeDirectLinkExtractor()
-        extractor.extractInfo(for: .urlString(videoString), success: { (videoInfo) in
+        extractor.extractInfo(for: .id(id), success: { (videoInfo) in
             DispatchQueue.main.async {
                 if let videoUrl = videoInfo.highestQualityPlayableLink {
                     if let url = URL(string: videoUrl) {
-                        debugPrint(url)
-                        //                        sent ur to video or blayer
+                        DispatchQueue.main.async {
+                           self.mediaPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
+                        }
                     }
                 }
             }
@@ -179,6 +180,8 @@ extension MediaPlayerViewController {
         }
     }
 }
+
+
 
 
 extension MediaPlayerViewController {
@@ -195,14 +198,27 @@ extension MediaPlayerViewController {
     
     func previousVideo() {
         
+
+        
+        
     }
     
     func nextVideo() {
-        
-        
-        
-        
-        
-        
+
+        if let position = currentPositionInPlaylist {
+            if position != playlist.endIndex - 1{
+                if let id = playlist[position + 1].id {
+                    getVideoDirrectUrl(id)
+                }
+                currentPositionInPlaylist = position + 1
+            } else {
+                currentPositionInPlaylist = 0
+                if let id = playlist[0].id {
+                 getVideoDirrectUrl(id)
+                }
+            }
+        } else {
+            debugPrint("no current playlist error")
+        }
     }
 }
