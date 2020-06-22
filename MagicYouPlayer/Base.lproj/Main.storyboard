@@ -370,7 +370,7 @@
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dIY-OC-eKN">
                                                                         <rect key="frame" x="16" y="20" width="372" height="31"/>
                                                                         <connections>
-                                                                            <action selector="sliderValueChanged:" destination="nzS-ba-guq" eventType="valueChanged" id="ybU-bn-Iyo"/>
+                                                                            <action selector="sliderDurationValueDidChanged:" destination="nzS-ba-guq" eventType="valueChanged" id="JAH-2n-zIP"/>
                                                                         </connections>
                                                                     </slider>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQn-4O-wFN">
@@ -408,6 +408,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="bFB-fA-5Uw"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="sliderSoundVolumeDidChanged:" destination="nzS-ba-guq" eventType="valueChanged" id="qgR-hr-KB9"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sound_Min" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-Bu-BLp">
                                                                         <rect key="frame" x="18" y="275.5" width="25" height="25"/>

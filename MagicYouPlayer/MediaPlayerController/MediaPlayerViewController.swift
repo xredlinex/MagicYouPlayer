@@ -20,7 +20,6 @@ class MediaPlayerViewController: UIViewController {
     @IBOutlet weak var videoDurationLeftTextLabel: UILabel!
     @IBOutlet weak var videoTitileTextLabel: UILabel!
     @IBOutlet weak var videoViewsCountTextLabel: UILabel!
-    
     @IBOutlet weak var soundVolumeSlider: UISlider!
     @IBOutlet weak var playPauseImageView: UIImageView!
     
@@ -80,9 +79,14 @@ class MediaPlayerViewController: UIViewController {
     }
     
     
-    @IBAction func sliderValueChanged(_ sender: Any) {
+    @IBAction func sliderDurationValueDidChanged(_ sender: Any) {
         mediaPlayer.seek(to: CMTimeMake(value: Int64(timeSlider.value * 1000), timescale: 1000))
     }
+    
+    @IBAction func sliderSoundVolumeDidChanged(_ sender: Any) {
+        mediaPlayer.volume = Float(soundVolumeSlider.value)
+    }
+    
 }
 
 extension MediaPlayerViewController {
