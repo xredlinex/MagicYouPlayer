@@ -9,6 +9,7 @@
 import UIKit
 import YoutubeDirectLinkExtractor
 import AVFoundation
+import MediaPlayer
 
 class MediaPlayerViewController: UIViewController {
     
@@ -33,12 +34,17 @@ class MediaPlayerViewController: UIViewController {
     var isPlaying = false
     var path = "https://www.youtube.com/watch?v="
     
+    var outputVolumeObserve: NSKeyValueObservation?
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let recieveUrl = url {
-          mediaPlayer = AVPlayer(url: recieveUrl)
+            mediaPlayer = AVPlayer(url: recieveUrl)
         }
+        
         playerSetup()
         setupUI()
     }
@@ -53,7 +59,6 @@ class MediaPlayerViewController: UIViewController {
         playerLayer.frame = videoMediaPlayerView.bounds
     }
     
-
     
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -87,6 +92,11 @@ class MediaPlayerViewController: UIViewController {
         mediaPlayer.volume = Float(soundVolumeSlider.value)
     }
     
+    
+    
+    
+    
+    
 }
 
 extension MediaPlayerViewController {
@@ -119,8 +129,6 @@ extension MediaPlayerViewController {
         if keyPath == "duration", let duration = mediaPlayer.currentItem?.duration.seconds, duration > 0.0 {
             if let currentItem = mediaPlayer.currentItem {
                 self.videoDurationLeftTextLabel.text = stringTime(from: currentItem.duration)
-            } else {
-                debugPrint("zzzzz")
             }
         }
     }
@@ -157,7 +165,6 @@ extension MediaPlayerViewController {
 }
 
 
-
 extension MediaPlayerViewController {
     
     func getVideoDirrectUrl(_ videoString: String) {
@@ -177,3 +184,5 @@ extension MediaPlayerViewController {
         }
     }
 }
+
+
