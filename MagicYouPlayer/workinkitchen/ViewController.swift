@@ -114,6 +114,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
            super.viewDidLayoutSubviews()
            playerLayer.frame = videoView.bounds
+        debugPrint("layout")
        }
 //
      func addTimeObserver() {

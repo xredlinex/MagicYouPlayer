@@ -99,37 +99,94 @@ extension PlayListViewController {
     
     func playVideo(collectionView: UICollectionView, indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
         
         switch collectionView {
         case playlistCollectionView:
             if let videoId = channelsPlaylists[indexPath.section][indexPath.row].id {
-                viewController.videoId = videoId
-                viewController.playlist = channelsPlaylists[indexPath.section]
-                viewController.currentPositionInPlaylist = indexPath.row
+                getVideoDirrectUrl(id: videoId) { (url) in
+                    DispatchQueue.main.async {
+                        self.presenModalController(url: url, playlist: self.channelsPlaylists[indexPath.section], position: indexPath.row)
+                    }
+                }
+                
+                
+//                viewController.videoId = videoId
+//                viewController.playlist = channelsPlaylists[indexPath.section]
+//                viewController.currentPositionInPlaylist = indexPath.row
             }
         case favoritePlaylistCollectionview:
             if let videoId = favoritePlaylist[indexPath.row].id {
-                viewController.videoId = videoId
-                viewController.playlist = favoritePlaylist
-                viewController.currentPositionInPlaylist = indexPath.row
+                
+                
+                
+                getVideoDirrectUrl(id: videoId) { (url) in
+                    
+//                    viewController.url = url
+//                                           viewController.videoId = videoId
+//                                           viewController.playlist = self.favoritePlaylist
+//                                           viewController.currentPositionInPlaylist = indexPath.row
+                    
+                    
+                    DispatchQueue.main.async {
+                       
+                        
+                        self.presenModalController(url: url, playlist: self.favoritePlaylist, position: indexPath.row)
+                        
+                    }
+                    
+                }
+                
+                
+                
+                
             }
         case channelsCollectionView:
             for items in channelsPlaylists {
                 if let video = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
                     if let videoId = video.id {
-                        viewController.videoId = videoId
-                        viewController.playlist = items
-                        viewController.currentPositionInPlaylist = 0
+                        
+                        getVideoDirrectUrl(id: videoId) { (url) in
+                            DispatchQueue.main.async {
+                                self.presenModalController(url: url, playlist: items, position: 0)
+                            }
+                        }
+//
+//
+//                        viewController.videoId = videoId
+//                        viewController.playlist = items
+//                        viewController.currentPositionInPlaylist = 0
                     }
                 }
             }
         default:
             return
         }
-        viewController.modalPresentationStyle = .overCurrentContext
-        viewController.modalTransitionStyle = .coverVertical
-        self.present(viewController, animated: true, completion: nil)
+        
     }
 }
+
+
+
+extension PlayListViewController {
+    
+    func presenModalController(url: URL, playlist: [Item], position: Int) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
+        viewController.url = url
+        viewController.playlist = playlist
+        viewController.currentPositionInPlaylist = position
+        viewController.modalPresentationStyle = .overCurrentContext
+                               viewController.modalTransitionStyle = .coverVertical
+                               self.present(viewController, animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    
+}
+
+
