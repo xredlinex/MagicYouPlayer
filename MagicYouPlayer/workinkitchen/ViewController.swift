@@ -115,7 +115,7 @@ class ViewController: UIViewController {
            super.viewDidLayoutSubviews()
            playerLayer.frame = videoView.bounds
        }
-    
+//
      func addTimeObserver() {
            let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
            let mainQueue = DispatchQueue.main
@@ -127,14 +127,14 @@ class ViewController: UIViewController {
                self?.currentTimeLabel.text = self?.getTimeString(from: currentItem.currentTime())
            })
        }
-    
+//    
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
             self.durationLabel.text = getTimeString(from: player.currentItem!.duration)
         }
     }
-    
+//
     func getTimeString(from time: CMTime) -> String {
            let totalSeconds = CMTimeGetSeconds(time)
            let hours = Int(totalSeconds/3600)
@@ -147,7 +147,7 @@ class ViewController: UIViewController {
            }
        }
     
-    
+//
     
     
     
