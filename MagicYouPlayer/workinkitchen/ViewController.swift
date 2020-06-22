@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 
 
        
-       player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
+//       player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
        addTimeObserver()
        playerLayer = AVPlayerLayer(player: player)
        playerLayer.videoGravity = .resize
@@ -130,11 +130,11 @@ class ViewController: UIViewController {
        }
 //    
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
-            self.durationLabel.text = getTimeString(from: player.currentItem!.duration)
-        }
-    }
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
+//            self.durationLabel.text = getTimeString(from: player.currentItem!.duration)
+//        }
+//    }
 //
     func getTimeString(from time: CMTime) -> String {
            let totalSeconds = CMTimeGetSeconds(time)

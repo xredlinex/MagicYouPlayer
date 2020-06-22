@@ -618,7 +618,7 @@
                         <outlet property="playerCloseImageView" destination="CsE-eC-KxR" id="vHA-7g-btR"/>
                         <outlet property="soundVolumeSlider" destination="rFn-hG-eSj" id="0sV-nf-fv6"/>
                         <outlet property="timeSlider" destination="dIY-OC-eKN" id="vGV-xP-g0S"/>
-                        <outlet property="videoDurationTextLabel" destination="Iq5-VV-Z1V" id="5YP-Cs-aS2"/>
+                        <outlet property="videoDurationLeftTextLabel" destination="Iq5-VV-Z1V" id="9vV-cf-Ud9"/>
                         <outlet property="videoMediaPlayerView" destination="RPZ-Ac-HGP" id="R6e-TB-ghN"/>
                         <outlet property="videoTitileTextLabel" destination="IB6-Lo-skg" id="tAJ-yh-Kjc"/>
                         <outlet property="videoViewsCountTextLabel" destination="xFU-A6-sU3" id="Joy-XH-Nnr"/>

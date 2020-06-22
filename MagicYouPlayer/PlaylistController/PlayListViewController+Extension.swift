@@ -87,28 +87,23 @@ extension PlayListViewController {
     }
 }
 
-
 extension PlayListViewController {
     
-    
-    
     func getVideoDirrectUrl(id: String, complition: @escaping (_ url: URL) -> ()) {
-            
-            let path = "https://www.youtube.com/watch?v=" + id
-            let extractor = YoutubeDirectLinkExtractor()
-            extractor.extractInfo(for: .urlString(path), success: { (videoInfo) in
-                DispatchQueue.main.async {
-                    if let videoUrl = videoInfo.highestQualityPlayableLink {
-                        if let getUrl = URL(string: videoUrl) {
-                            complition(getUrl)                            
-                            debugPrint(getUrl)
-                        }
+        
+        let path = "https://www.youtube.com/watch?v=" + id
+        let extractor = YoutubeDirectLinkExtractor()
+        extractor.extractInfo(for: .urlString(path), success: { (videoInfo) in
+            DispatchQueue.main.async {
+                if let videoUrl = videoInfo.highestQualityPlayableLink {
+                    if let getUrl = URL(string: videoUrl) {
+                        complition(getUrl)
                     }
                 }
-            }) { (error) in
-                debugPrint(error)
             }
+        }) { (error) in
+            debugPrint(error)
+//            make alerr or tost cant get url 
         }
-    
-    
+    }
 }

@@ -17,7 +17,10 @@ class MediaPlayerViewController: UIViewController {
     @IBOutlet weak var videoMediaPlayerView: UIView!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var currentTimePositionTextLabel: UILabel!
-    @IBOutlet weak var videoDurationTextLabel: UILabel!
+    @IBOutlet weak var videoDurationLeftTextLabel: UILabel!
+    
+//    @IBOutlet weak var videoDurationTextLabel: UILabel!
+    
     @IBOutlet weak var videoTitileTextLabel: UILabel!
     @IBOutlet weak var videoViewsCountTextLabel: UILabel!
     @IBOutlet weak var soundVolumeSlider: UISlider!
@@ -85,7 +88,12 @@ class MediaPlayerViewController: UIViewController {
         
         if keyPath == "duration", let duration = mediaPlayer.currentItem?.duration.seconds, duration > 0.0 {
             if let currentItem = mediaPlayer.currentItem {
-                self.videoDurationTextLabel.text = getTimeString(from: currentItem.duration)
+                
+                
+                let timeleft = currentItem.duration - currentItem.currentTime()
+                let lefty = stringTime(from: timeleft)
+                debugPrint(lefty)
+//                self.videoDurationTextLabel.text = stringTime(from: currentItem.duration)
             }
         }
     }
@@ -157,54 +165,60 @@ extension MediaPlayerViewController {
        
     }
     
-    func timeObserver() {
-        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        let mainQueue = DispatchQueue.main
-//        _ = mediaPlayer.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
-//            guard let currentItem = self?.mediaPlayer.currentItem else {return}
-//            self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
-//            self?.timeSlider.maximumValue = 0
-//            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
-//            self?.currentTimePositionTextLabel.text = self?.getTimeString(time: currentItem.currentTime())
+
+    
+    
+  
+}
+
+extension MediaPlayerViewController {
+    
+        func timeObserver() {
+            let timeInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            _ = mediaPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] time in
+                guard let currentItem = self?.mediaPlayer.currentItem else {return}
+                self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
+                self?.timeSlider.minimumValue = 0
+                self?.timeSlider.value = Float(currentItem.currentTime().seconds)
+                
+                if let timeLeft = self?.stringTime(from: currentItem.duration - currentItem.currentTime()) {
+                    self?.videoDurationLeftTextLabel.text = "- \(timeLeft)"
+                }
+                self?.currentTimePositionTextLabel.text = self?.stringTime(from: currentItem.currentTime())
+            })
             
-            _ = mediaPlayer.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
-            guard let currentItem = self?.mediaPlayer.currentItem else {return}
-            self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
-            self?.timeSlider.minimumValue = 0
-            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
-            self?.currentTimePositionTextLabel.text = self?.getTimeString(from: currentItem.currentTime())
+    
             
             
             
-        })
-    }
+        }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+extension MediaPlayerViewController {
     
     
-    func getTimeString(from time: CMTime) -> String {
-              let totalSeconds = CMTimeGetSeconds(time)
-              let hours = Int(totalSeconds/3600)
-              let minutes = Int(totalSeconds/60) % 60
-              let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
-              if hours > 0 {
-                  return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
-              }else {
-                  return String(format: "%02i:%02i", arguments: [minutes,seconds])
-              }
-          }
-    
-    
-    
-//    func getTimeString(time: CMTime) -> String {
-//        let totalSeconds = CMTimeGetSeconds(time)
-//        let hours = Int(totalSeconds / 3600)
-//        let minutes = Int(totalSeconds / 60) % 60
-//        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
-//        if hours > 0 {
-//            return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
-//        }else {
-//            return String(format: "%02i:%02i", arguments: [minutes,seconds])
-//        }
-//    }
+    func stringTime(from time: CMTime) -> String {
+                let totalSeconds = CMTimeGetSeconds(time)
+                let hours = Int(totalSeconds/3600)
+                let minutes = Int(totalSeconds/60) % 60
+                let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
+                if hours > 0 {
+                    return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
+                }else {
+                    return String(format: "%02i:%02i", arguments: [minutes,seconds])
+                }
+            }
 }
 
 
