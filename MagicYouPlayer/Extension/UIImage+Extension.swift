@@ -8,11 +8,3 @@
 
 import UIKit
 
-
-
-
-
-extension UIImage
-{
-
-}
