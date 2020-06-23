@@ -11,6 +11,7 @@ import AVFoundation
 
 class MediaPlayerViewController: UIViewController {
     
+    
     @IBOutlet weak var backgroundPlayerView: UIView!
     @IBOutlet weak var dimmerView: UIView!
     @IBOutlet weak var playerCloseImageView: UIImageView!
@@ -40,6 +41,7 @@ class MediaPlayerViewController: UIViewController {
             mediaPlayer = AVPlayer(url: recieveUrl)
             updatingItemsInfo(id: id)
         }
+        
         
         playerSetup()
         setupUI()
