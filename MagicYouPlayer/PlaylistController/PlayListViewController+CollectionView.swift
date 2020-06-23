@@ -98,7 +98,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
 extension PlayListViewController {
     
     func playVideo(collectionView: UICollectionView, indexPath: IndexPath) {
- 
+        
         switch collectionView {
         case playlistCollectionView:
             if let videoId = channelsPlaylists[indexPath.section][indexPath.row].id {

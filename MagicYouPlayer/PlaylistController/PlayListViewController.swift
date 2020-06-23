@@ -46,8 +46,8 @@ class PlayListViewController: UIViewController {
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
         
         setupUI()
-        //        channelsCollectionView.collectionViewLayout = flowLayout
         channelCollectionTimer()
+        //        channelsCollectionView.collectionViewLayout = flowLayout
     }
     
     override func viewDidLayoutSubviews() {

@@ -81,7 +81,6 @@ extension MediaPlayerViewController {
     }
 }
 
-
 extension MediaPlayerViewController {
     
     func getVideoDirrectUrl(_ id: String) {

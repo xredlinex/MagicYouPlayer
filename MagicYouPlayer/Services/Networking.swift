@@ -29,25 +29,25 @@ class NetworkService {
                             complition(items)
                         } else {
                             alert.presentAlertController(title: alertErrors.errorKey(.badData),
-                                                                     message: alertErrors.errorKey(.cantFindObject),
-                                                                     viewController: viewController)
+                                                         message: alertErrors.errorKey(.cantFindObject),
+                                                         viewController: viewController)
                         }
                     } catch {
                         debugPrint(error)
                         alert.presentAlertController(title: alertErrors.errorKey(.network),
-                                                                 message: alertErrors.errorKey(.responseError),
-                                                                 viewController: viewController)
+                                                     message: alertErrors.errorKey(.responseError),
+                                                     viewController: viewController)
                     }
                 } else {
                     alert.presentAlertController(title: alertErrors.errorKey(.network),
-                                                             message: alertErrors.errorKey(.responseError),
-                                                             viewController: viewController)
+                                                 message: alertErrors.errorKey(.responseError),
+                                                 viewController: viewController)
                 }
             }
         } else {
             alert.presentAlertController(title: alertErrors.errorKey(.network),
-                                                     message: alertErrors.errorKey(.badLink),
-                                                     viewController: viewController)
+                                         message: alertErrors.errorKey(.badLink),
+                                         viewController: viewController)
         }
     }
 }

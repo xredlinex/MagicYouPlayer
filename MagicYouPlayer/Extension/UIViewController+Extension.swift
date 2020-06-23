@@ -10,7 +10,7 @@ import UIKit
 
 extension UIAlertController {
     
-     func presentAlertController(title: String, message: String, viewController: UIViewController) {
+    func presentAlertController(title: String, message: String, viewController: UIViewController) {
         
         viewController.view.hideToastActivity()
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -19,4 +19,3 @@ extension UIAlertController {
         viewController.present(alertController, animated: true, completion: nil)
     }
 }
-

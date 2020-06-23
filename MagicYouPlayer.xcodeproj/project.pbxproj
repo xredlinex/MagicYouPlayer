@@ -20,7 +20,6 @@
 		9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9735EFE6249D7ED600E15F50 /* Networking.swift */; };
 		974C3F9C249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */; };
 		974C3F9D249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */; };
-		97613C67249E197F00F65CC0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C66249E197F00F65CC0 /* FirstViewController.swift */; };
 		97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */; };
 		97613C6D249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */; };
 		97613C6E249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */; };
@@ -29,7 +28,6 @@
 		97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */; };
 		977CF80324A2907200619DBB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CF80224A2907200619DBB /* UIViewController+Extension.swift */; };
 		977CF80524A2A60900619DBB /* AlertErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CF80424A2A60900619DBB /* AlertErrors.swift */; };
-		97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BA7A86249FC2A00055C894 /* ViewController.swift */; };
 		97F34E7B24A152F9000B75EC /* MediaPlayerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */; };
 		97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E8024A16F01000B75EC /* UIView+Extension.swift */; };
 		97F34E8524A17866000B75EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F34E8424A17866000B75EC /* GoogleService-Info.plist */; };
@@ -54,7 +52,6 @@
 		9735EFE6249D7ED600E15F50 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritePlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
-		97613C66249E197F00F65CC0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsCollectionViewCell.swift; sourceTree = "<group>"; };
 		97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -63,7 +60,6 @@
 		97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		977CF80224A2907200619DBB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		977CF80424A2A60900619DBB /* AlertErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrors.swift; sourceTree = "<group>"; };
-		97BA7A86249FC2A00055C894 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaPlayerViewController+Extension.swift"; sourceTree = "<group>"; };
 		97F34E8024A16F01000B75EC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		97F34E8424A17866000B75EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -112,7 +108,6 @@
 		972CE0C1249CCBD700E7377F /* MagicYouPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				97F34E8424A17866000B75EC /* GoogleService-Info.plist */,
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
 				977D7EE2249FA258008CDFC1 /* Extension */,
@@ -127,7 +122,7 @@
 				972CE0CB249CCBD900E7377F /* Assets.xcassets */,
 				972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */,
 				972CE0D0249CCBD900E7377F /* Info.plist */,
-				977D7EE1249FA234008CDFC1 /* workinkitchen */,
+				97F34E8424A17866000B75EC /* GoogleService-Info.plist */,
 			);
 			path = MagicYouPlayer;
 			sourceTree = "<group>";
@@ -195,15 +190,6 @@
 				97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */,
 			);
 			path = PlaylistCollectionCell;
-			sourceTree = "<group>";
-		};
-		977D7EE1249FA234008CDFC1 /* workinkitchen */ = {
-			isa = PBXGroup;
-			children = (
-				97BA7A86249FC2A00055C894 /* ViewController.swift */,
-				97613C66249E197F00F65CC0 /* FirstViewController.swift */,
-			);
-			path = workinkitchen;
 			sourceTree = "<group>";
 		};
 		977D7EE2249FA258008CDFC1 /* Extension */ = {
@@ -351,13 +337,11 @@
 				974C3F9C249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift in Sources */,
 				972CE0C5249CCBD700E7377F /* SceneDelegate.swift in Sources */,
 				977CF80324A2907200619DBB /* UIViewController+Extension.swift in Sources */,
-				97613C67249E197F00F65CC0 /* FirstViewController.swift in Sources */,
 				972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */,
 				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
 				97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */,
 				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
 				97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */,
-				97BA7A87249FC2A00055C894 /* ViewController.swift in Sources */,
 				977CF80524A2A60900619DBB /* AlertErrors.swift in Sources */,
 				97F34E7B24A152F9000B75EC /* MediaPlayerViewController+Extension.swift in Sources */,
 				97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */,

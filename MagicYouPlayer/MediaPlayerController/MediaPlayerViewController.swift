@@ -25,14 +25,14 @@ class MediaPlayerViewController: UIViewController {
     
     var mediaPlayer = AVPlayer()
     var playerLayer = AVPlayerLayer()
+    let alertError = AlertErrors()
+    let alertController = UIAlertController()
     
     var videoId: String?
     var playlist: [Item] = []
     var currentPositionInPlaylist: Int?
     var url: URL?
     var isPlaying = true
-    let alertError = AlertErrors()
-    let alertController = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

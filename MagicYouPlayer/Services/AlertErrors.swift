@@ -42,6 +42,5 @@ class AlertErrors {
         case .noVideo:
             return "Can't Find Playlist Video"
         }
-        
     }
 }

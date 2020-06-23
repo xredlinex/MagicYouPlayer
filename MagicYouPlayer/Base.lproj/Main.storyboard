@@ -26,11 +26,11 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube API" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2W-sQ-48R">
-                                                        <rect key="frame" x="10" y="1.5" width="224" height="49"/>
+                                                        <rect key="frame" x="10" y="1.5" width="197" height="49"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="49" id="D35-rw-DUv"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="41"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
