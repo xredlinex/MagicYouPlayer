@@ -31,7 +31,8 @@ class MediaPlayerViewController: UIViewController {
     var currentPositionInPlaylist: Int?
     var url: URL?
     var isPlaying = true
-    var path = "https://www.youtube.com/watch?v="
+    let alertError = AlertErrors()
+    let alertController = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ class MediaPlayerViewController: UIViewController {
         playerLayer.frame = videoMediaPlayerView.bounds
         backgroundPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
     }
-
+    
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

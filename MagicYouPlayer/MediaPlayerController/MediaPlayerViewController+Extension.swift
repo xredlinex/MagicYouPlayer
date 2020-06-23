@@ -99,6 +99,7 @@ extension MediaPlayerViewController {
             }
         }) { (error) in
             debugPrint(error)
+            self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
         }
     }
 }
@@ -123,12 +124,16 @@ extension MediaPlayerViewController {
                     currentPositionInPlaylist = position - 1
                     getVideoDirrectUrl(id)
                     updatingItemsInfo(id: id)
+                } else {
+                    alertController.presentAlertController(title: "Sorry", message: alertError.errorKey(.noVideo), viewController: self)
                 }
             } else {
                 if let id = playlist[playlist.endIndex - 1].id {
                     currentPositionInPlaylist = playlist.endIndex - 1
                     getVideoDirrectUrl(id)
                     updatingItemsInfo(id: id)
+                } else {
+                    alertController.presentAlertController(title: "Sorry", message: alertError.errorKey(.noVideo), viewController: self)
                 }
             }
         }
@@ -142,12 +147,16 @@ extension MediaPlayerViewController {
                     currentPositionInPlaylist = position + 1
                     getVideoDirrectUrl(id)
                     updatingItemsInfo(id: id)
+                } else {
+                    alertController.presentAlertController(title: "Sorry", message: alertError.errorKey(.noVideo), viewController: self)
                 }
             } else {
                 if let id = playlist[playlist.startIndex].id {
                     currentPositionInPlaylist = playlist.startIndex
                     getVideoDirrectUrl(id)
                     updatingItemsInfo(id: id)
+                } else {
+                    alertController.presentAlertController(title: "Sorry", message: alertError.errorKey(.noVideo), viewController: self)
                 }
             }
         }

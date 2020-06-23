@@ -98,7 +98,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
 extension PlayListViewController {
     
     func playVideo(collectionView: UICollectionView, indexPath: IndexPath) {
-        
+ 
         switch collectionView {
         case playlistCollectionView:
             if let videoId = channelsPlaylists[indexPath.section][indexPath.row].id {
@@ -107,6 +107,8 @@ extension PlayListViewController {
                         self.presenModalController(url: url, playlist: self.channelsPlaylists[indexPath.section], position: indexPath.row, id: videoId)
                     }
                 }
+            } else {
+                self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
             }
         case favoritePlaylistCollectionview:
             if let videoId = favoritePlaylist[indexPath.row].id {
@@ -115,6 +117,8 @@ extension PlayListViewController {
                         self.presenModalController(url: url, playlist: self.favoritePlaylist, position: indexPath.row, id: videoId)
                     }
                 }
+            } else {
+                self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
             }
         case channelsCollectionView:
             for items in channelsPlaylists {
@@ -126,6 +130,8 @@ extension PlayListViewController {
                             }
                         }
                     }
+                } else {
+                    self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
                 }
             }
         default:

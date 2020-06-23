@@ -3,24 +3,28 @@ PODS:
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
+  - Toast-Swift (5.0.1)
   - YoutubeDirectLinkExtractor (0.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Kingfisher (~> 5.0)
+  - Toast-Swift (~> 5.0.1)
   - YoutubeDirectLinkExtractor
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - Toast-Swift
     - YoutubeDirectLinkExtractor
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   YoutubeDirectLinkExtractor: de7abd36c0e3bb120b9b372f36450fbf9b51c01e
 
-PODFILE CHECKSUM: c2cf8ee85b43458b92d8b07c823d8af181e16142
+PODFILE CHECKSUM: 1188b6650cc2ec0b7891b5572f852af942b0d943
 
 COCOAPODS: 1.8.4
