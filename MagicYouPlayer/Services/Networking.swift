@@ -13,8 +13,10 @@ class NetworkService {
     
     static let apiKey = "&key=AIzaSyATl3fxffUVL8CX4Cw4o7gHTT0HQqF-Cww"
     
-    static func getRequest(endPoint: String, part: String, type: String, complition: @escaping (_ object: [Item]) -> ()) {
+    
+    static func getRequest(endPoint: String, part: String, type: String, viewController: UIViewController, complition: @escaping (_ object: [Item]) -> ()) {
         
+        viewController.view.makeToastActivity(.center)
         let baseApiLink = "https://www.googleapis.com/youtube/v3/"
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
@@ -24,19 +26,33 @@ class NetworkService {
                         let youtubeObjects = try JSONDecoder().decode(YoutubeVideo.self, from: data)
                         if let items = youtubeObjects.items {
                             complition(items)
+                            
                         } else {
-                            //                                                        error or thmsgs
-                        }
+            
+            
+                            UIAlertController.presentAlertController(title: "Network Error", message: "Network Error, Reload APp", viewController: viewController)
+                                                    
+}
                     } catch {
                         debugPrint(error)
+            
+                      UIAlertController.presentAlertController(title: "Network Error", message: "Network Error, Reload APp", viewController: viewController)
+
                     }
                 } else {
-                    //                                      response errror
+            
+                    UIAlertController.presentAlertController(title: "Network Error", message: "Network Error, Reload APp", viewController: viewController)
+            
+            
+
                 }
             }
         } else {
-            //                        make alert error get link or thms
             
+            
+            UIAlertController.presentAlertController(title: "Network Error", message: "Network Error, Reload APp", viewController: viewController)
+            
+
         }
     }
 }
@@ -70,3 +86,7 @@ extension UIAlertController {
     vc.present(alert, animated: true, completion: nil)
 }
 }
+
+
+
+
