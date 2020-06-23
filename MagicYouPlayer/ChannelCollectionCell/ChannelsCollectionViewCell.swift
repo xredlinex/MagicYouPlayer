@@ -20,12 +20,11 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         setupUI()
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         channalVideoThumbnailImageView.image = nil
-        
     }
     
     func updateChanneCell(channel: Item, channelVideo: Item) {
@@ -49,10 +48,7 @@ extension ChannelsCollectionViewCell {
         channelSubscribersCountTextLabel.textColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         
         let colorOne = UIColor(red: 244/255, green: 94/255, blue: 154/255, alpha: 1).cgColor
-//        let colorOne = UIColor(red: 241/255, green: 93/255, blue: 11575/255, alpha: 1).cgColor
-               let colorTwo = UIColor(red: 122/255, green: 54/255, blue: 246/255, alpha: 1).cgColor
-               playButtonView.setupGradient([colorTwo, colorOne])
-        
-        
+        let colorTwo = UIColor(red: 122/255, green: 54/255, blue: 246/255, alpha: 1).cgColor
+        playButtonView.setupGradient([colorTwo, colorOne])
     }
 }

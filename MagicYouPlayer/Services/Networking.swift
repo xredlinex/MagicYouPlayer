@@ -19,13 +19,11 @@ class NetworkService {
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
             AF.request(urlCorrect, method: .get, encoding: URLEncoding.default).responseData { (response) in
-                debugPrint(url)
                 if let data = response.data {
                     do {
                         let youtubeObjects = try JSONDecoder().decode(YoutubeVideo.self, from: data)
                         if let items = youtubeObjects.items {
                             complition(items)
-                            debugPrint(items.count)
                         } else {
                             //                                                        error or thmsgs
                         }

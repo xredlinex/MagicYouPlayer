@@ -61,6 +61,10 @@ extension PlayListViewController {
         
         playerOpenCloseImageView.image = UIImage(named: "Close_Open")
         playerOpenCloseImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
+        let colorOne = UIColor(red: 235/255, green: 89/255, blue: 162/255, alpha: 1).cgColor
+        let  colorTwo = UIColor(red: 244/255, green: 94/255, blue: 154/255, alpha: 1).cgColor
+        openPlayerView.setupGradient([colorOne, colorTwo])
     }
 }
 
