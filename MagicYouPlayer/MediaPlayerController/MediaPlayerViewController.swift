@@ -43,16 +43,39 @@ class MediaPlayerViewController: UIViewController {
         
         playerSetup()
         setupUI()
+        
+        let colorOne = UIColor(red: 244/255, green: 94/255, blue: 155/255, alpha: 1).cgColor
+                             let colorTwo = UIColor(red: 133/255, green: 54/255, blue: 240/255, alpha: 1).cgColor
+                             backgroundPlayerView.setupGradient([colorTwo, colorOne])
+         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         modalPresentationStyle = .overFullScreen
+        
+        
+//       let gradientLayers = self.view.layer.sublayers?.compactMap { $0 as? CAGradientLayer }
+//       gradientLayers?.first?.frame = self.view.bounds
+        
     }
     
     override func viewDidLayoutSubviews() {
+        
+        
+        backgroundPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
+        
+ 
+        
+        
+        
         playerLayer.frame = videoMediaPlayerView.bounds
+        
+        
+//
+//        let gradientLayers = self.view.layer.sublayers?.compactMap { $0 as? CAGradientLayer }
+//        gradientLayers?.first?.frame = self.view.bounds
     }
     
     @IBAction func didTapDismissActionButton(_ sender: Any) {

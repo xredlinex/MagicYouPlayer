@@ -33,9 +33,9 @@ extension MediaPlayerViewController {
         
         
         
-               let colorOne = UIColor(red: 95/255, green: 96/255, blue: 100/255, alpha: 1).cgColor
-               let colorTwo = UIColor(red: 40/255, green: 41/255, blue: 45/255, alpha: 1).cgColor
-               backgroundPlayerView.setupBackGroundGradient([colorTwo, colorOne])
+//               let colorOne = UIColor(red: 95/255, green: 96/255, blue: 100/255, alpha: 1).cgColor
+//               let colorTwo = UIColor(red: 40/255, green: 41/255, blue: 45/255, alpha: 1).cgColor
+//               backgroundPlayerView.setupGradient([colorTwo, colorOne])
            
         
         
