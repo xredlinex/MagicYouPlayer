@@ -36,7 +36,7 @@ class NetworkService {
                     } catch {
                         debugPrint(error)
             
-                        viewController.view.hideAllToasts()
+                      UIAlertController.presentAlertController(title: "Network Error", message: "Network Error, Reload APp", viewController: viewController)
 
                     }
                 } else {
