@@ -16,6 +16,7 @@ class AlertErrors {
         case responseError
         case badData
         case cantFindObject
+        case network
     }
     
     func errorKey(_ error: ErrorText) -> String {
@@ -29,6 +30,8 @@ class AlertErrors {
             return "Can't Find Data"
         case .cantFindObject:
             return "Can't Find Data Object"
+        case .network:
+            return "Network Error"
         }
     }
 }
