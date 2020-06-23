@@ -17,6 +17,9 @@ class AlertErrors {
         case badData
         case cantFindObject
         case network
+        case videoId
+        case extractorError
+        case noVideo
     }
     
     func errorKey(_ error: ErrorText) -> String {
@@ -32,6 +35,13 @@ class AlertErrors {
             return "Can't Find Data Object"
         case .network:
             return "Network Error"
+        case .videoId:
+            return "Can't Find Video ID"
+        case .extractorError:
+            return "Error Extract Youtube Direct Link"
+        case .noVideo:
+            return "Can't Find Playlist Video"
         }
+        
     }
 }

@@ -16,6 +16,7 @@ class NetworkService {
         
         let baseApiLink = "https://www.googleapis.com/youtube/v3/"
         let alertErrors = AlertErrors()
+        let alert = UIAlertController()
         
         let url = baseApiLink + endPoint + part + type + apiKey
         if let urlCorrect = URL(string: url) {
@@ -27,24 +28,24 @@ class NetworkService {
                         if let items = youtubeObjects.items {
                             complition(items)
                         } else {
-                            UIAlertController.presentAlertController(title: alertErrors.errorKey(.badData),
+                            alert.presentAlertController(title: alertErrors.errorKey(.badData),
                                                                      message: alertErrors.errorKey(.cantFindObject),
                                                                      viewController: viewController)
                         }
                     } catch {
                         debugPrint(error)
-                        UIAlertController.presentAlertController(title: alertErrors.errorKey(.network),
+                        alert.presentAlertController(title: alertErrors.errorKey(.network),
                                                                  message: alertErrors.errorKey(.responseError),
                                                                  viewController: viewController)
                     }
                 } else {
-                    UIAlertController.presentAlertController(title: alertErrors.errorKey(.network),
+                    alert.presentAlertController(title: alertErrors.errorKey(.network),
                                                              message: alertErrors.errorKey(.responseError),
                                                              viewController: viewController)
                 }
             }
         } else {
-            UIAlertController.presentAlertController(title: alertErrors.errorKey(.network),
+            alert.presentAlertController(title: alertErrors.errorKey(.network),
                                                      message: alertErrors.errorKey(.badLink),
                                                      viewController: viewController)
         }

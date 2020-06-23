@@ -13,7 +13,6 @@ extension PlayListViewController {
     
     func getChannels(channelsId: String) {
         
-        
         NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId, viewController: self) { (items) in
             self.channels = items
             
@@ -46,7 +45,7 @@ extension PlayListViewController {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
                 self.favoritePlaylistCollectionview.reloadData()
-                self.view.hideAllToasts()
+                self.view.hideToastActivity()
             }
         }
     }
@@ -109,7 +108,7 @@ extension PlayListViewController {
             }
         }) { (error) in
             DispatchQueue.main.async {
-                self.view.makeToast("Error Extract Youtube Direct Link", duration: 3.0, position: .top)                
+                self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
             }
         }
     }

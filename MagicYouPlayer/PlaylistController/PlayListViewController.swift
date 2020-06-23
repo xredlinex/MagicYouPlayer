@@ -20,12 +20,12 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var channelPageControl: UIPageControl!
     @IBOutlet weak var playerOpenCloseImageView: UIImageView!
     @IBOutlet weak var openPlayerView: UIView!
-
+    
     //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
     var favoritePlaylist: [Item] = []
-    
+    let alertError = AlertErrors()
     let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
     let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
     let thirdChannelId = "&id=UCxbViCBWaW2RLZLGcOdsxAw"
@@ -36,7 +36,7 @@ class PlayListViewController: UIViewController {
     let channelsLink = "channels?"
     let playlistLink = "playlistItems?"
     let videoLink = "videos?"
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +44,7 @@ class PlayListViewController: UIViewController {
         channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
-    
+        
         setupUI()
         //        channelsCollectionView.collectionViewLayout = flowLayout
         channelCollectionTimer()
@@ -52,17 +52,13 @@ class PlayListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
+        
         openPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
     }
-
+    
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
-        viewController.modalPresentationStyle = .overCurrentContext
-        viewController.modalTransitionStyle = .coverVertical
-        self.present(viewController, animated: true, completion: nil)
+        playVideo(collectionView: favoritePlaylistCollectionview, indexPath: IndexPath(item: 1, section: 0))
     }
 }
 

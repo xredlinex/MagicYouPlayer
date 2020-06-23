@@ -7,24 +7,16 @@
 //
 
 import UIKit
-import Toast_Swift
-
 
 extension UIAlertController {
     
-   static func presentAlertController(title: String, message: String, viewController: UIViewController) {
+     func presentAlertController(title: String, message: String, viewController: UIViewController) {
         
-    
-    viewController.view.hideToastActivity()
+        viewController.view.hideToastActivity()
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
         alertController.addAction(alertAction)
-        
-         viewController.present(alertController, animated: true, completion: nil)
-        
-        
+        viewController.present(alertController, animated: true, completion: nil)
     }
-    
-
 }
 
