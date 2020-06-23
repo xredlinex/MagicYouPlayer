@@ -5,8 +5,9 @@
 //  Created by alexey sorochan on 20.06.2020.
 //  Copyright © 2020 alexey sorochan. All rights reserved.
 //
-
+import UIKit
 import Alamofire
+import Toast_Swift
 
 class NetworkService {
     
@@ -35,8 +36,37 @@ class NetworkService {
             }
         } else {
             //                        make alert error get link or thms
+            
         }
     }
 }
 
 
+
+//extension UIViewController {
+//
+//    static func showAlertError() {
+//        let alertController = UIAlertController(title: "Error", message: "Some Error", preferredStyle: .alert)
+//        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in }
+//        alertController.addAction(alertAction)
+//        present(alertController, animated: true, completion: nil)
+//    }
+//}
+extension UIAlertController {
+/// display alert with custom number of buttons
+    static func presentAlert(_ title: String?, message: String?, alertButtonTitles: [String], alertButtonStyles: [UIAlertAction.Style], vc: UIViewController, completion: @escaping (Int)->Void) -> Void
+{
+    let alert = UIAlertController(title: title,
+                                  message: message,
+                                  preferredStyle: UIAlertController.Style.alert)
+
+    for title in alertButtonTitles {
+        let actionObj = UIAlertAction(title: title,
+                                      style: alertButtonStyles[alertButtonTitles.index(of: title)!], handler: { action in
+                                        completion(alertButtonTitles.index(of: action.title!)!)
+        })
+        alert.addAction(actionObj)
+    }
+    vc.present(alert, animated: true, completion: nil)
+}
+}

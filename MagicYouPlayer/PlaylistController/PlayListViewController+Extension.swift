@@ -13,6 +13,7 @@ extension PlayListViewController {
     
     func getChannels(channelsId: String) {
         
+        self.view.makeToastActivity(.center)
         NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId) { (items) in
             self.channels = items
             debugPrint(items.count)
@@ -45,6 +46,7 @@ extension PlayListViewController {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
                 self.favoritePlaylistCollectionview.reloadData()
+                self.view.hideToastActivity()
             }
         }
     }
@@ -96,9 +98,8 @@ extension PlayListViewController {
     
     func getVideoDirrectUrl(id: String, complition: @escaping (_ url: URL) -> ()) {
         
-        let path = "https://www.youtube.com/watch?v=" + id
         let extractor = YoutubeDirectLinkExtractor()
-        extractor.extractInfo(for: .urlString(path), success: { (videoInfo) in
+        extractor.extractInfo(for: .id(id), success: { (videoInfo) in
             DispatchQueue.main.async {
                 if let videoUrl = videoInfo.highestQualityPlayableLink {
                     if let getUrl = URL(string: videoUrl) {
@@ -107,8 +108,9 @@ extension PlayListViewController {
                 }
             }
         }) { (error) in
-            debugPrint(error)
-//            make alerr or tost cant get url 
+            DispatchQueue.main.async {
+                self.view.makeToast("Error Extract Youtube Direct Link", duration: 3.0, position: .top)                
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 extension PlayListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
