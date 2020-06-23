@@ -13,10 +13,10 @@ extension PlayListViewController {
     
     func getChannels(channelsId: String) {
         
-        self.view.makeToastActivity(.center)
-        NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId) { (items) in
+        
+        NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId, viewController: self) { (items) in
             self.channels = items
-            debugPrint(items.count)
+            
             DispatchQueue.main.async {
                 for channel in self.channels {
                     if let playlistId = channel.contentDetails?.relatedPlaylists?.uploads {
@@ -29,7 +29,7 @@ extension PlayListViewController {
     
     func getPlaylist(playlistId: String) {
         
-        NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId) { (items) in
+        NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId, viewController: self) { (items) in
             DispatchQueue.main.async {
                 self.getVideoStat(videoIdGroup: items)
             }
@@ -39,14 +39,14 @@ extension PlayListViewController {
     func getVideoStat(videoIdGroup: [Item]) {
         
         let idString = videoIdGroup.map { ($0.contentDetails?.videoId ?? "") }.joined(separator: ",")
-        NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: idString) { (items) in
+        NetworkService.getRequest(endPoint: videoLink, part: videoPart, type: idString, viewController: self) { (items) in
             self.channelsPlaylists.append(items)
             self.favoritePlaylist = items
             DispatchQueue.main.async {
                 self.channelsCollectionView.reloadData()
                 self.playlistCollectionView.reloadData()
                 self.favoritePlaylistCollectionview.reloadData()
-                self.view.hideToastActivity()
+                self.view.hideAllToasts()
             }
         }
     }

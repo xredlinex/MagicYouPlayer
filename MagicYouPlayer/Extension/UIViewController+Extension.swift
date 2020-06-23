@@ -7,20 +7,21 @@
 //
 
 import UIKit
-import Foundation
+import Toast_Swift
 
 
-extension UIViewController {
+extension UIAlertController {
     
-     func presentAlertController(title: String, message: String) {
+   static func presentAlertController(title: String, message: String, viewController: UIViewController) {
         
+    
+    viewController.view.hideToastActivity()
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
         alertController.addAction(alertAction)
         
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
-        }
+         viewController.present(alertController, animated: true, completion: nil)
+        
         
     }
     
