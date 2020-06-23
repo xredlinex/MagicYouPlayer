@@ -25,15 +25,6 @@ extension MediaPlayerViewController {
 
 extension MediaPlayerViewController {
     
-    func setupUI() {
-        timeSlider.value = 0
-        playerCloseImageView.image = UIImage(named: "Close_Open")
-        playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
-    }
-}
-
-extension MediaPlayerViewController {
-    
     func playerSetup() {
         
         mediaPlayer.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
@@ -65,6 +56,7 @@ extension MediaPlayerViewController {
             self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
             self?.timeSlider.minimumValue = 0
             self?.timeSlider.value = Float(currentItem.currentTime().seconds)
+            
             if let timeLeft = self?.stringTime(from: currentItem.duration - currentItem.currentTime()) {
                 self?.videoDurationLeftTextLabel.text = "- \(timeLeft)"
             }
@@ -159,5 +151,61 @@ extension MediaPlayerViewController {
                 }
             }
         }
+    }
+}
+
+extension MediaPlayerViewController {
+    
+    func setupUI() {
+        
+        backgroundPlayerView.layoutIfNeeded()
+        
+        let colorOne = UIColor(red: 244/255, green: 94/255, blue: 155/255, alpha: 1).cgColor
+        let colorTwo = UIColor(red: 133/255, green: 54/255, blue: 240/255, alpha: 1).cgColor
+        backgroundPlayerView.setupGradient([colorTwo, colorOne])
+        
+        playerCloseImageView.image = UIImage(named: "Close_Open")
+        playPauseImageView.image = isPlaying ? UIImage(named: "Pause") : UIImage(named: "Play")
+        
+        timeSlider.value = 0
+        timeSlider.minimumTrackTintColor = .white
+        timeSlider.maximumTrackTintColor = UIColor(red: 210/255, green: 139/255, blue: 221/255, alpha: 1)
+        timeSlider.tintColor = .white
+        timeSlider.setThumbImage(UIImage(systemName: "circle"), for: UIControl.State.highlighted)
+        soundVolumeSlider.minimumTrackTintColor = .white
+        soundVolumeSlider.maximumTrackTintColor = UIColor(red: 210/255, green: 139/255, blue: 221/255, alpha: 1)
+        
+        let timeSliderFrame = CGRect(x: 0, y: 0, width: 3, height: 10)
+        let timeSliderPath = CGPath(rect: timeSliderFrame, transform: nil)
+        setupForThumbSlider(slider: timeSlider,
+                            frameSize: timeSliderFrame,
+                            path: timeSliderPath,
+                            color: .white)
+        
+        let volumeSliderFrame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        let volumeSliderPath = CGPath(roundedRect: volumeSliderFrame,
+                                      cornerWidth: volumeSliderFrame.width / 2,
+                                      cornerHeight: volumeSliderFrame.height / 2,
+                                      transform: nil)
+        setupForThumbSlider(slider: soundVolumeSlider,
+                            frameSize: volumeSliderFrame,
+                            path: volumeSliderPath,
+                            color: .white)
+    }
+    
+    func setupForThumbSlider(slider: UISlider, frameSize: CGRect, path: CGPath, color: UIColor) {
+        
+        let layerFrame = frameSize
+        let shapeLayer = CAShapeLayer()
+        let thumb = CALayer.init()
+        shapeLayer.path = path
+        shapeLayer.fillColor = color.cgColor
+        thumb.frame = layerFrame
+        thumb.addSublayer(shapeLayer)
+        UIGraphicsBeginImageContextWithOptions(thumb.frame.size, false, 0.0)
+        thumb.render(in: UIGraphicsGetCurrentContext()!)
+        let thumbImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        slider.setThumbImage(thumbImage, for: .normal)
     }
 }

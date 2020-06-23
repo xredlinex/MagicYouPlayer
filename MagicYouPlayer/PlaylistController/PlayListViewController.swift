@@ -18,6 +18,8 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var favoristPlaylistTextLabel: UILabel!
     @IBOutlet weak var channelPageControl: UIPageControl!
     @IBOutlet weak var playerOpenCloseImageView: UIImageView!
+    @IBOutlet weak var openPlayerView: UIView!
+
     //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
@@ -41,12 +43,18 @@ class PlayListViewController: UIViewController {
         channelsCollectionView.register(UINib(nibName: "ChannelsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ChannelsCollectionViewCell")
         playlistCollectionView.register(UINib(nibName: "PlaylistCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaylistCollectionViewCell")
         favoritePlaylistCollectionview.register((UINib(nibName: "FavoritePlaylistCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "FavoritePlaylistCollectionViewCell")
-        
+    
         setupUI()
         //        channelsCollectionView.collectionViewLayout = flowLayout
         channelCollectionTimer()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    
+        openPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
+    }
+
     @IBAction func didTapPlayerActionButton(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

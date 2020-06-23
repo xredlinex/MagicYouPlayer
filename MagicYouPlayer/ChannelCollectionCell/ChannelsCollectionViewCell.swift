@@ -20,7 +20,7 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         setupUI()
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -46,5 +46,9 @@ extension ChannelsCollectionViewCell {
         playButtonView.clipsToBounds = true
         playButtonView.layer.cornerRadius = playButtonView.frame.width / 2
         channelSubscribersCountTextLabel.textColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+        
+        let colorOne = UIColor(red: 244/255, green: 94/255, blue: 154/255, alpha: 1).cgColor
+        let colorTwo = UIColor(red: 122/255, green: 54/255, blue: 246/255, alpha: 1).cgColor
+        playButtonView.setupGradient([colorTwo, colorOne])
     }
 }

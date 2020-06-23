@@ -11,6 +11,7 @@ import AVFoundation
 
 class MediaPlayerViewController: UIViewController {
     
+    @IBOutlet weak var backgroundPlayerView: UIView!
     @IBOutlet weak var dimmerView: UIView!
     @IBOutlet weak var playerCloseImageView: UIImageView!
     @IBOutlet weak var videoMediaPlayerView: UIView!
@@ -51,9 +52,11 @@ class MediaPlayerViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        
         playerLayer.frame = videoMediaPlayerView.bounds
+        backgroundPlayerView.cornerRadiusView(corners: [.topLeft, .topRight], radius: 20)
     }
-    
+
     @IBAction func didTapDismissActionButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -78,7 +81,3 @@ class MediaPlayerViewController: UIViewController {
         mediaPlayer.volume = Float(soundVolumeSlider.value)
     }
 }
-
-
-
-
