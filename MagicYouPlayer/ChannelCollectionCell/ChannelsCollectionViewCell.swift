@@ -27,6 +27,11 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
         
         channalVideoThumbnailImageView.image = nil
     }
+}
+
+//  MARK: - update cell info -
+
+extension ChannelsCollectionViewCell {
     
     func updateChanneCell(channel: Item, channelVideo: Item) {
         
@@ -36,9 +41,13 @@ class ChannelsCollectionViewCell: UICollectionViewCell {
         if let urlString = channelVideo.snippet?.thumbnails?.high?.url {
             let url = URL(string: urlString)
             channalVideoThumbnailImageView.kf.setImage(with: url)
+        } else {
+            channalVideoThumbnailImageView.image = UIImage(named: "no video")
         }
     }
 }
+
+// MARK: - cell ui -
 
 extension ChannelsCollectionViewCell {
     

@@ -21,6 +21,8 @@ class FavoritePlaylistCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//  MARK: - update cell info -
+
 extension FavoritePlaylistCollectionViewCell {
     
     func updatePlaylistCell(playlistItems: Item) {
@@ -29,12 +31,13 @@ extension FavoritePlaylistCollectionViewCell {
             if let url = URL(string: urlLink) {
                 favoritePreviewImageView.kf.setImage(with: url)
             }
+        } else {
+            favoritePreviewImageView.image = UIImage(named: "no video")
         }
-        
         favoriteTitileTextLabel.text = playlistItems.snippet?.title ?? "--"
         favoriteViewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"
         
         previewVideoView.clipsToBounds = true
-        previewVideoView.layer.cornerRadius = 12
+        previewVideoView.layer.cornerRadius = 8
     }
 }

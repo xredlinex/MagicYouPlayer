@@ -11,6 +11,7 @@ import Foundation
 public class YoutubeDirectLinkExtractor {
     
     private let infoBasePrefix = "https://www.youtube.com/get_video_info?video_id="
+    
     private let userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6"
    
     private var session: URLSession
@@ -51,14 +52,17 @@ public class YoutubeDirectLinkExtractor {
                         completion: @escaping ([[String: String]], Swift.Error?) -> Void) {
         
         guard let id = source.videoId else {
+            
             completion([], Error.cantExtractVideoId)
             return
         }
+    
         
         guard let infoUrl = URL(string: "\(infoBasePrefix)\(id)") else {
             completion([], Error.cantConstructRequestUrl)
             return
         }
+    
         
         let r = NSMutableURLRequest(url: infoUrl)
         r.httpMethod = "GET"

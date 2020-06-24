@@ -21,6 +21,8 @@ class PlaylistCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//  MARK: - update cell info -
+
 extension PlaylistCollectionViewCell {
     
     func updatePlaylistCell(playlistItems: Item) {
@@ -29,11 +31,13 @@ extension PlaylistCollectionViewCell {
             if let url = URL(string: urlLink) {
                 playlistPreviewImageView.kf.setImage(with: url)
             }
+        } else {
+            playlistPreviewImageView.image = UIImage(named: "no video")
         }
         videoTitleTextLabel.text = playlistItems.snippet?.title ?? "--"
         previewCountTextLabel.text = "\(playlistItems.statistics?.viewCount ?? "--") просмотров"
         
         previewVideoView.clipsToBounds = true
-        previewVideoView.layer.cornerRadius = 12
+        previewVideoView.layer.cornerRadius = 8
     }
 }

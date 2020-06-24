@@ -23,6 +23,8 @@ extension MediaPlayerViewController {
     }
 }
 
+//MARK: - player init setup
+
 extension MediaPlayerViewController {
     
     func playerSetup() {
@@ -36,6 +38,8 @@ extension MediaPlayerViewController {
         mediaPlayer.play()
     }
 }
+
+//  MARK: - video time observer -
 
 extension MediaPlayerViewController {
     
@@ -81,6 +85,8 @@ extension MediaPlayerViewController {
     }
 }
 
+// MARK: - youtube direct link extractor
+
 extension MediaPlayerViewController {
     
     func getVideoDirrectUrl(_ id: String) {
@@ -98,10 +104,14 @@ extension MediaPlayerViewController {
             }
         }) { (error) in
             debugPrint(error)
-            self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
+            DispatchQueue.main.async {
+                self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
+            }
         }
     }
 }
+
+// MARK: - play, previous, next
 
 extension MediaPlayerViewController {
     
@@ -162,6 +172,7 @@ extension MediaPlayerViewController {
     }
 }
 
+// MARK: - ui setup, sliders setup
 extension MediaPlayerViewController {
     
     func setupUI() {

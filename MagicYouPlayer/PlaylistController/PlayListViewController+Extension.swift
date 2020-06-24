@@ -9,13 +9,14 @@
 import UIKit
 import YoutubeDirectLinkExtractor
 
+//  MARK: - channels info continuous async requset -
+
 extension PlayListViewController {
     
     func getChannels(channelsId: String) {
         
         NetworkService.getRequest(endPoint: channelsLink, part: channelPart, type: channelsId, viewController: self) { (items) in
             self.channels = items
-            
             DispatchQueue.main.async {
                 for channel in self.channels {
                     if let playlistId = channel.contentDetails?.relatedPlaylists?.uploads {
@@ -31,6 +32,7 @@ extension PlayListViewController {
         NetworkService.getRequest(endPoint: playlistLink, part: playlistPart, type: playlistId, viewController: self) { (items) in
             DispatchQueue.main.async {
                 self.getVideoStat(videoIdGroup: items)
+                self.view.hideToastActivity()
             }
         }
     }
@@ -51,6 +53,98 @@ extension PlayListViewController {
     }
 }
 
+//  MARK: - get direct video url link extractor -
+
+extension PlayListViewController {
+    
+    func getVideoDirrectUrl(id: String, complition: @escaping (_ url: URL) -> ()) {
+
+        let extractor = YoutubeDirectLinkExtractor()
+        extractor.extractInfo(for: .id(id), success: { (videoInfo) in
+            DispatchQueue.main.async {
+                if let videoUrl = videoInfo.highestQualityPlayableLink {
+                    if let getUrl = URL(string: videoUrl) {
+                        complition(getUrl)
+                    }
+                } else if let videoUrl = videoInfo.lowestQualityPlayableLink {
+                    if let getUrl = URL(string: videoUrl) {
+                        complition(getUrl)
+                    }
+                }
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
+            }
+        }
+    }
+}
+
+// MARK: - did tap collection view cell video
+
+extension PlayListViewController {
+    
+    func playVideo(collectionView: UICollectionView, indexPath: IndexPath) {
+        
+        switch collectionView {
+        case playlistCollectionView:
+            if let videoId = channelsPlaylists[indexPath.section][indexPath.row].id {
+                getVideoDirrectUrl(id: videoId) { (url) in
+                    DispatchQueue.main.async {
+                        self.presenModalController(url: url, playlist: self.channelsPlaylists[indexPath.section], position: indexPath.row, id: videoId)
+                    }
+                }
+            } else {
+                self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
+            }
+        case favoritePlaylistCollectionview:
+            if let videoId = favoritePlaylist[indexPath.row].id {
+                getVideoDirrectUrl(id: videoId) { (url) in
+                    DispatchQueue.main.async {
+                        self.presenModalController(url: url, playlist: self.favoritePlaylist, position: indexPath.row, id: videoId)
+                    }
+                }
+            } else {
+                self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
+            }
+        case channelsCollectionView:
+            for items in channelsPlaylists {
+                if let video = items.first(where: { $0.snippet?.channelId == channels[indexPath.row].id}) {
+                    if let videoId = video.id {
+                        getVideoDirrectUrl(id: videoId) { (url) in
+                            DispatchQueue.main.async {
+                                self.presenModalController(url: url, playlist: items, position: 0, id: videoId)
+                            }
+                        }
+                    }
+                } else {
+                    self.view.makeToast(alertError.errorKey(.videoId), duration: 3.0, position: .bottom)
+                }
+            }
+        default:
+            return
+        }
+    }
+}
+
+extension PlayListViewController {
+    
+    func presenModalController(url: URL, playlist: [Item], position: Int, id: String) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MediaPlayerViewController") as! MediaPlayerViewController
+        viewController.url = url
+        viewController.playlist = playlist
+        viewController.currentPositionInPlaylist = position
+        viewController.videoId = id
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true, completion: nil)
+    }
+}
+
+// MAKR: - user interface elements
+
 extension PlayListViewController {
     
     func setupUI() {
@@ -68,6 +162,8 @@ extension PlayListViewController {
         openPlayerView.setupGradient([colorOne, colorTwo])
     }
 }
+
+// MARK: - channels collection view timer slider - 
 
 extension PlayListViewController {
     
@@ -88,27 +184,6 @@ extension PlayListViewController {
                         collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
                     }
                 }
-            }
-        }
-    }
-}
-
-extension PlayListViewController {
-    
-    func getVideoDirrectUrl(id: String, complition: @escaping (_ url: URL) -> ()) {
-        
-        let extractor = YoutubeDirectLinkExtractor()
-        extractor.extractInfo(for: .id(id), success: { (videoInfo) in
-            DispatchQueue.main.async {
-                if let videoUrl = videoInfo.highestQualityPlayableLink {
-                    if let getUrl = URL(string: videoUrl) {
-                        complition(getUrl)
-                    }
-                }
-            }
-        }) { (error) in
-            DispatchQueue.main.async {
-                self.view.makeToast(self.alertError.errorKey(.extractorError), duration: 2.0, position: .bottom)
             }
         }
     }

@@ -27,7 +27,7 @@ class PlayListViewController: UIViewController {
     let channelOneId = "&id=UCVHOgH4XEyYx-ZEaya1XqCQ"
     let secondChannelId = "&id=UCPu3YP9Qgl46UdFrGvyguNw"
     let thirdChannelId = "&id=UCxbViCBWaW2RLZLGcOdsxAw"
-    let fourthChannelId = "&id=UCzWdpFOflXTOk5Gsi2aJ67g"
+    let fourthChannelId = "&id=UC-wdveKCDbbjK0_rzR2XhVA" 
     let channelPart = "part=contentDetails%2Csnippet%2Cstatistics"
     let playlistPart = "part=snippet%2CcontentDetails&maxResults=10&playlistId="
     let videoPart = "part=contentDetails%2Csnippet%2Cstatistics&id="
