@@ -89,6 +89,7 @@
                 <outlet property="channalVideoThumbnailImageView" destination="yTq-4W-Doo" id="GGW-6t-tq3"/>
                 <outlet property="channelSubscribersCountTextLabel" destination="cvP-40-Vdg" id="HHm-AB-Aem"/>
                 <outlet property="channelTitleTextLabel" destination="OCb-l5-QAd" id="keA-pd-u4d"/>
+                <outlet property="channelVideoView" destination="ojh-yh-Sy1" id="aca-NA-O6o"/>
                 <outlet property="playButtonView" destination="4Em-TB-Fzq" id="qam-ts-a4z"/>
             </connections>
             <point key="canvasLocation" x="-245" y="50"/>

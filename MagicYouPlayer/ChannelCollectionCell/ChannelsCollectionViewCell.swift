@@ -11,6 +11,7 @@ import Kingfisher
 
 class ChannelsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var channelVideoView: UIView!
     @IBOutlet weak var channalVideoThumbnailImageView: UIImageView!
     @IBOutlet weak var channelTitleTextLabel: UILabel!
     @IBOutlet weak var channelSubscribersCountTextLabel: UILabel!
@@ -45,6 +46,8 @@ extension ChannelsCollectionViewCell {
         
         playButtonView.clipsToBounds = true
         playButtonView.layer.cornerRadius = playButtonView.frame.width / 2
+        channelVideoView.clipsToBounds = true
+        channelVideoView.layer.cornerRadius = 12
         channelSubscribersCountTextLabel.textColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         
         let colorOne = UIColor(red: 244/255, green: 94/255, blue: 154/255, alpha: 1).cgColor
