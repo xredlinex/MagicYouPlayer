@@ -67,6 +67,11 @@ extension MediaPlayerViewController {
             self?.currentTimePositionTextLabel.text = self?.stringTime(from: currentItem.currentTime())
         })
     }
+    
+    @objc func videoDidEnd(notification: NotificationCenter) {
+        nextVideo()
+        mediaPlayer.play()
+    }
 }
 
 extension MediaPlayerViewController {

@@ -52,6 +52,12 @@ class MediaPlayerViewController: UIViewController {
         modalPresentationStyle = .overFullScreen
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
     override func viewDidLayoutSubviews() {
         
         playerLayer.frame = videoMediaPlayerView.bounds
