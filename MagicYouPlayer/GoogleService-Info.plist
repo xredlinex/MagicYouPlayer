@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>679811804525-jbt2ijfi6e23h2bc917tc8qidtjrqs0t.apps.googleusercontent.com</string>
+	<string>710132482627-dokvab2dhi0m142okfqvg4oppgpq3h74.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.679811804525-jbt2ijfi6e23h2bc917tc8qidtjrqs0t</string>
+	<string>com.googleusercontent.apps.710132482627-dokvab2dhi0m142okfqvg4oppgpq3h74</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAjjzrmBDUlJhrMQ_S6KrSWIWLMg1iy1Hc</string>
+	<string>AIzaSyDhuHE1UMQsEXW5ofUvn8s0wGyV7BJ7Oko</string>
 	<key>GCM_SENDER_ID</key>
-	<string>679811804525</string>
+	<string>710132482627</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.alexeysorochan.MagicYouPlayer</string>
 	<key>PROJECT_ID</key>
-	<string>magicyouplayer</string>
+	<string>magicyouplayer-afce6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>magicyouplayer.appspot.com</string>
+	<string>magicyouplayer-afce6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:679811804525:ios:5dfdd94ae14dc1319a7e64</string>
+	<string>1:710132482627:ios:ec44ac2a2a5d76f6b08af6</string>
 	<key>DATABASE_URL</key>
-	<string>https://magicyouplayer.firebaseio.com</string>
+	<string>https://magicyouplayer-afce6.firebaseio.com</string>
 </dict>
 </plist>

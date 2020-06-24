@@ -16,11 +16,21 @@
 		972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D6249CD34500E7377F /* PlayListViewController.swift */; };
 		972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */; };
 		972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */; };
-		972CE0DD249CD41D00E7377F /* ApiClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DC249CD41D00E7377F /* ApiClientService.swift */; };
 		972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CE0DE249CD44200E7377F /* ContentModel.swift */; };
-		97FC38AF249CDE70008B483C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97FC38AE249CDE70008B483C /* GoogleService-Info.plist */; };
+		9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9735EFE6249D7ED600E15F50 /* Networking.swift */; };
+		974C3F9C249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */; };
+		974C3F9D249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */; };
+		97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */; };
+		97613C6D249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */; };
+		97613C6E249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */; };
+		97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */; };
+		97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */; };
+		977CF80324A2907200619DBB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CF80224A2907200619DBB /* UIViewController+Extension.swift */; };
+		977CF80524A2A60900619DBB /* AlertErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CF80424A2A60900619DBB /* AlertErrors.swift */; };
+		97F34E7B24A152F9000B75EC /* MediaPlayerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */; };
+		97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F34E8024A16F01000B75EC /* UIView+Extension.swift */; };
+		97F34E8524A17866000B75EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F34E8424A17866000B75EC /* GoogleService-Info.plist */; };
 		97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC38B8249D3561008B483C /* ChannelModel.swift */; };
-		97FC38BB249D4033008B483C /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC38BA249D4033008B483C /* PlaylistModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +47,21 @@
 		972CE0D6249CD34500E7377F /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Extension.swift"; sourceTree = "<group>"; };
-		972CE0DC249CD41D00E7377F /* ApiClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientService.swift; sourceTree = "<group>"; };
 		972CE0DE249CD44200E7377F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
-		97FC38AE249CDE70008B483C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9735EFE6249D7ED600E15F50 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritePlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
+		97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
+		97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsCollectionViewCell.swift; sourceTree = "<group>"; };
+		97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelsCollectionViewCell.xib; sourceTree = "<group>"; };
+		97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
+		977CF80224A2907200619DBB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		977CF80424A2A60900619DBB /* AlertErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrors.swift; sourceTree = "<group>"; };
+		97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaPlayerViewController+Extension.swift"; sourceTree = "<group>"; };
+		97F34E8024A16F01000B75EC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		97F34E8424A17866000B75EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97FC38B8249D3561008B483C /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
-		97FC38BA249D4033008B483C /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,14 +108,19 @@
 			children = (
 				972CE0C2249CCBD700E7377F /* AppDelegate.swift */,
 				972CE0C4249CCBD700E7377F /* SceneDelegate.swift */,
+				977D7EE2249FA258008CDFC1 /* Extension */,
 				972CE0E0249CD44600E7377F /* Model */,
 				972CE0E2249CD47900E7377F /* Services */,
 				972CE0E1249CD45100E7377F /* PlaylistController */,
+				97613C6F249E4D7000F65CC0 /* ChannelCollectionCell */,
+				97613C76249EB02F00F65CC0 /* PlaylistCollectionCell */,
+				974C3F9E249EBCEA00E00945 /* FavoritePlaylistCollectioncCell */,
+				97613C6A249E1EEE00F65CC0 /* MediaPlayerController */,
 				972CE0C8249CCBD700E7377F /* Main.storyboard */,
 				972CE0CB249CCBD900E7377F /* Assets.xcassets */,
 				972CE0CD249CCBD900E7377F /* LaunchScreen.storyboard */,
 				972CE0D0249CCBD900E7377F /* Info.plist */,
-				97FC38AE249CDE70008B483C /* GoogleService-Info.plist */,
+				97F34E8424A17866000B75EC /* GoogleService-Info.plist */,
 			);
 			path = MagicYouPlayer;
 			sourceTree = "<group>";
@@ -105,7 +130,6 @@
 			children = (
 				972CE0DE249CD44200E7377F /* ContentModel.swift */,
 				97FC38B8249D3561008B483C /* ChannelModel.swift */,
-				97FC38BA249D4033008B483C /* PlaylistModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,9 +137,9 @@
 		972CE0E1249CD45100E7377F /* PlaylistController */ = {
 			isa = PBXGroup;
 			children = (
-				972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */,
 				972CE0D6249CD34500E7377F /* PlayListViewController.swift */,
 				972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */,
+				972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */,
 			);
 			path = PlaylistController;
 			sourceTree = "<group>";
@@ -123,9 +147,55 @@
 		972CE0E2249CD47900E7377F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				972CE0DC249CD41D00E7377F /* ApiClientService.swift */,
+				9735EFE6249D7ED600E15F50 /* Networking.swift */,
+				977CF80424A2A60900619DBB /* AlertErrors.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		974C3F9E249EBCEA00E00945 /* FavoritePlaylistCollectioncCell */ = {
+			isa = PBXGroup;
+			children = (
+				974C3F9A249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift */,
+				974C3F9B249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib */,
+			);
+			path = FavoritePlaylistCollectioncCell;
+			sourceTree = "<group>";
+		};
+		97613C6A249E1EEE00F65CC0 /* MediaPlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */,
+				97F34E7A24A152F9000B75EC /* MediaPlayerViewController+Extension.swift */,
+			);
+			path = MediaPlayerController;
+			sourceTree = "<group>";
+		};
+		97613C6F249E4D7000F65CC0 /* ChannelCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */,
+				97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */,
+			);
+			path = ChannelCollectionCell;
+			sourceTree = "<group>";
+		};
+		97613C76249EB02F00F65CC0 /* PlaylistCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */,
+				97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */,
+			);
+			path = PlaylistCollectionCell;
+			sourceTree = "<group>";
+		};
+		977D7EE2249FA258008CDFC1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				97F34E8024A16F01000B75EC /* UIView+Extension.swift */,
+				977CF80224A2907200619DBB /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E61010B2B1DCCDFC0ED1D485 /* Frameworks */ = {
@@ -148,7 +218,6 @@
 				972CE0BC249CCBD700E7377F /* Frameworks */,
 				972CE0BD249CCBD700E7377F /* Resources */,
 				1485C6B74B8F0F0977366A2F /* [CP] Embed Pods Frameworks */,
-				1C4467AE855CC885AFBB9AFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,9 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				972CE0CF249CCBD900E7377F /* LaunchScreen.storyboard in Resources */,
-				97FC38AF249CDE70008B483C /* GoogleService-Info.plist in Resources */,
+				974C3F9D249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.xib in Resources */,
+				97613C6E249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib in Resources */,
+				97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */,
 				972CE0CC249CCBD900E7377F /* Assets.xcassets in Resources */,
 				972CE0CA249CCBD700E7377F /* Main.storyboard in Resources */,
+				97F34E8524A17866000B75EC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,23 +294,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicYouPlayer/Pods-MagicYouPlayer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1C4467AE855CC885AFBB9AFE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicYouPlayer/Pods-MagicYouPlayer-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicYouPlayer/Pods-MagicYouPlayer-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicYouPlayer/Pods-MagicYouPlayer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC664B02AEBD53A4AF03530F /* [CP] Check Pods Manifest.lock */ = {
@@ -270,14 +325,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */,
+				9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */,
 				972CE0C3249CCBD700E7377F /* AppDelegate.swift in Sources */,
+				97613C6D249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift in Sources */,
 				972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */,
+				974C3F9C249EBCE500E00945 /* FavoritePlaylistCollectionViewCell.swift in Sources */,
 				972CE0C5249CCBD700E7377F /* SceneDelegate.swift in Sources */,
+				977CF80324A2907200619DBB /* UIViewController+Extension.swift in Sources */,
 				972CE0D7249CD34500E7377F /* PlayListViewController.swift in Sources */,
 				972CE0DB249CD3E800E7377F /* PlayListViewController+Extension.swift in Sources */,
+				97F34E8124A16F01000B75EC /* UIView+Extension.swift in Sources */,
 				972CE0DF249CD44200E7377F /* ContentModel.swift in Sources */,
-				972CE0DD249CD41D00E7377F /* ApiClientService.swift in Sources */,
-				97FC38BB249D4033008B483C /* PlaylistModel.swift in Sources */,
+				97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */,
+				977CF80524A2A60900619DBB /* AlertErrors.swift in Sources */,
+				97F34E7B24A152F9000B75EC /* MediaPlayerViewController+Extension.swift in Sources */,
 				97FC38B9249D3561008B483C /* ChannelModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
