@@ -23,7 +23,6 @@
 		97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */; };
 		97613C6D249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */; };
 		97613C6E249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */; };
-		97613C71249E5F4900F65CC0 /* ZoomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C70249E5F4900F65CC0 /* ZoomFlowLayout.swift */; };
 		97613C74249EB02700F65CC0 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */; };
 		97613C75249EB02700F65CC0 /* PlaylistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */; };
 		977CF80324A2907200619DBB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977CF80224A2907200619DBB /* UIViewController+Extension.swift */; };
@@ -55,7 +54,6 @@
 		97613C68249E1EE100F65CC0 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		97613C6B249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsCollectionViewCell.swift; sourceTree = "<group>"; };
 		97613C6C249E4D5500F65CC0 /* ChannelsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelsCollectionViewCell.xib; sourceTree = "<group>"; };
-		97613C70249E5F4900F65CC0 /* ZoomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomFlowLayout.swift; sourceTree = "<group>"; };
 		97613C72249EB02700F65CC0 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		97613C73249EB02700F65CC0 /* PlaylistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCollectionViewCell.xib; sourceTree = "<group>"; };
 		977CF80224A2907200619DBB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				972CE0D6249CD34500E7377F /* PlayListViewController.swift */,
-				97613C70249E5F4900F65CC0 /* ZoomFlowLayout.swift */,
 				972CE0D8249CD3E000E7377F /* PlayListViewController+CollectionView.swift */,
 				972CE0DA249CD3E800E7377F /* PlayListViewController+Extension.swift */,
 			);
@@ -330,7 +327,6 @@
 			files = (
 				97613C69249E1EE100F65CC0 /* MediaPlayerViewController.swift in Sources */,
 				9735EFE7249D7ED600E15F50 /* Networking.swift in Sources */,
-				97613C71249E5F4900F65CC0 /* ZoomFlowLayout.swift in Sources */,
 				972CE0C3249CCBD700E7377F /* AppDelegate.swift in Sources */,
 				97613C6D249E4D5500F65CC0 /* ChannelsCollectionViewCell.swift in Sources */,
 				972CE0D9249CD3E000E7377F /* PlayListViewController+CollectionView.swift in Sources */,

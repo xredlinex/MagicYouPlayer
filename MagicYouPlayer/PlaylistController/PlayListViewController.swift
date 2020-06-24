@@ -8,7 +8,6 @@
 
 import UIKit
 import Toast_Swift
-//import UPCarouselFlowLayout
 
 class PlayListViewController: UIViewController {
     
@@ -21,7 +20,6 @@ class PlayListViewController: UIViewController {
     @IBOutlet weak var playerOpenCloseImageView: UIImageView!
     @IBOutlet weak var openPlayerView: UIView!
     
-    //    let flowLayout = ZoomAndSnapFlowLayout()
     var channels: [Item] = []
     var channelsPlaylists: [[Item]] = []
     var favoritePlaylist: [Item] = []
@@ -47,7 +45,6 @@ class PlayListViewController: UIViewController {
         
         setupUI()
         channelCollectionTimer()
-        //        channelsCollectionView.collectionViewLayout = flowLayout
     }
     
     override func viewDidLayoutSubviews() {
