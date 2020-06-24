@@ -81,7 +81,7 @@ extension PlayListViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == favoritePlaylistCollectionview {
-            return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.width / 2)
+            return CGSize(width: collectionView.frame.width / 3 - 5, height: collectionView.frame.height)
         } else if collectionView == playlistCollectionView {
             return CGSize(width: collectionView.frame.width / 2.3, height: collectionView.frame.height)
         } else {
